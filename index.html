@@ -1,104 +1,174 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Overlay Clima + Hora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrossel de Canais</title>
+  <style>
+    body {
+      background-color: #111;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-<style>
-body {
-    margin: 0;
-    background: transparent;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
+    /* Container geral do carrossel */
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 600px; /* Largura reduzida para cards mais estreitos */
+      margin: 0 auto;
+    }
 
-.container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 15px;
-    backdrop-filter: blur(6px);
-}
+    /* Janela que esconde os elementos fora de foco */
+    .carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
 
-.hora {
-    font-size: 36px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
+    /* O Grid estruturado em 3 colunas e 2 linhas fixas */
+    .carousel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+      grid-template-rows: repeat(2, 110px);   /* 2 linhas com altura fixa */
+      gap: 12px;
+      padding: 10px;
+    }
 
-.clima {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 22px;
-}
+    /* Card de canal mais estreito e vertical */
+    .canal-card {
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      border: 1px solid #333;
+    }
 
-.clima img {
-    width: 40px;
-    height: 40px;
-}
-</style>
+    /* Logo adaptada ao formato estreito */
+    .canal-logo {
+      max-width: 65px;
+      max-height: 40px;
+      object-fit: contain;
+    }
 
+    /* Informações de texto */
+    .canal-info {
+      font-size: 11px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    .canal-num {
+      color: #ff3333;
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    /* Botões laterais de navegação */
+    .carousel-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      padding: 15px 12px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 6px;
+      margin: 0 5px;
+      transition: background 0.2s;
+    }
+    
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="hora" id="hora">--:--</div>
-    <div class="clima">
-        <img id="icone" src="">
-        <span id="temp">--°C</span>
+  <div class="carousel-container">
+    <button class="carousel-btn" onclick="mudarSlide(-1)">&#10094;</button>
+    
+    <div class="carousel-wrapper">
+      <div class="carousel-grid" id="carouselGrid">
+        </div>
     </div>
-</div>
 
-<script>
-// ===== HORA =====
-function atualizarHora() {
-    const agora = new Date();
-    const h = String(agora.getHours()).padStart(2, '0');
-    const m = String(agora.getMinutes()).padStart(2, '0');
-    document.getElementById("hora").innerText = `${h}:${m}`;
-}
-setInterval(atualizarHora, 1000);
-atualizarHora();
+    <button class="carousel-btn" onclick="mudarSlide(1)">&#10095;</button>
+  </div>
 
-// ===== CLIMA (Open-Meteo - sem API KEY) =====
-async function carregarClima() {
-    try {
-        // Leme - SP
-        const lat = -22.18;
-        const lon = -47.39;
+  <script>
+    // Lista reduzida de canais para teste básico
+    const canais = [
+      {num:"01.1", nome:"JOVEM PAN", id:["Jovem.Pan.News.br","JovemPan.br","JovemPanNews.br","417187"], logo:"https://upload.wikimedia.org/wikipedia/commons/4/41/Logotipo_da_TV_Jovem_Pan_News.png"},
+      {num:"01.3", nome:"H&H HD", id:["Sao.Paulo/SP..Discovery.Home.and.Health.br","DiscoveryHomeHealth.br","523310"], logo:"https://upload.wikimedia.org/wikipedia/commons/9/90/Discovery_H%26H_Logo_2022.webp"},
+      {num:"01.4", nome:"TLC HD", id:["Sao.Paulo/SP..TLC.br","TLCDiscovery.br","523307"], logo:"https://upload.wikimedia.org/wikipedia/commons/7/74/TLC_Logo.svg"},
+      {num:"01.5", nome:"ARTE 1", id:["Sao.Paulo/SP..Arte.1.br","Arte1.br","523338"], logo:"https://upload.wikimedia.org/wikipedia/commons/3/31/Arte_1_logo.svg"},
+      {num:"01.6", nome:"BAND NEWS", id:["Sao.Paulo/SP..Band.News.br","BandNews.br","523314"], logo:"https://upload.wikimedia.org/wikipedia/commons/c/ce/BandNewsTV2024.svg"},
+      {num:"02.6", nome:"BAND", id:["Sao.Paulo/SP..Band.br","Band.br","523315"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2b/Rede_Bandeirantes_logo_2018.svg"},
+      {num:"03.1", nome:"RECORD NEWS", id:["Sao.Paulo/SP..Record.News.br","RecordNews.br","417184"], logo:"https://upload.wikimedia.org/wikipedia/commons/4/46/Record_News_logo_2023.svg"},
+      {num:"08.1", nome:"ESPN", id:["ESPN.br","418725"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg"},
+      {num:"08.2", nome:"ESPN 2", id:["ESPN.2.br","418722"], logo:"https://upload.wikimedia.org/wikipedia/commons/b/bf/ESPN2_logo.svg"}
+    ];
 
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+    let slideAtual = 0;
+    const itensPorSlide = 6; // 3 colunas x 2 linhas = 6 cards por vez
 
-        const res = await fetch(url);
-        const data = await res.json();
+    function renderizarSlide() {
+      const grid = document.getElementById("carouselGrid");
+      grid.innerHTML = "";
 
-        const temp = Math.round(data.current_weather.temperature);
-        const code = data.current_weather.weathercode;
+      // Mapeia quais itens devem aparecer na página atual
+      const inicio = slideAtual * itensPorSlide;
+      const fim = inicio + itensPorSlide;
+      const canaisDoSlide = canais.slice(inicio, fim);
 
-        document.getElementById("temp").innerText = `${temp}°C`;
-
-        // Mapeamento simples de ícones
-        let icon = "01d";
-
-        if ([0].includes(code)) icon = "01d"; // sol
-        else if ([1,2,3].includes(code)) icon = "02d"; // parcialmente nublado
-        else if ([45,48].includes(code)) icon = "50d"; // neblina
-        else if ([51,53,55,61,63,65].includes(code)) icon = "10d"; // chuva
-        else if ([71,73,75].includes(code)) icon = "13d"; // neve
-        else if ([95,96,99].includes(code)) icon = "11d"; // tempestade
-
-        document.getElementById("icone").src =
-            `https://openweathermap.org/img/wn/${icon}@2x.png`;
-
-    } catch (e) {
-        console.log("Erro clima:", e);
+      // Injeta a estrutura HTML de cada card
+      canaisDoSlide.forEach(canal => {
+        const card = document.createElement("div");
+        card.className = "canal-card";
+        card.innerHTML = `
+          <img class="canal-logo" src="${canal.logo}" alt="${canal.nome}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/5988/5988394.png'">
+          <div class="canal-info">
+            <div>${canal.nome}</div>
+            <div class="canal-num">CH: ${canal.num}</div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
     }
-}
 
-carregarClima();
-setInterval(carregarClima, 600000); // atualiza a cada 10 min
-</script>
+    function mudarSlide(direcao) {
+      const totalSlides = Math.ceil(canais.length / itensPorSlide);
+      
+      slideAtual += direcao;
+
+      // Retorna ao início ou vai ao fim se estourar o limite da lista (Loop)
+      if (slideAtual >= totalSlides) {
+        slideAtual = 0;
+      } else if (slideAtual < 0) {
+        slideAtual = totalSlides - 1;
+      }
+
+      renderizarSlide();
+    }
+
+    // Inicializa a primeira página ao carregar a estrutura
+    document.addEventListener("DOMContentLoaded", renderizarSlide);
+  </script>
 
 </body>
 </html>
