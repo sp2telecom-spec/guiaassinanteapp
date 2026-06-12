@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>GUIA TV</title>
+<title>GUIA TV + OVERLAY</title>
 
 <style>
 html, body {
@@ -12,11 +12,66 @@ html, body {
   padding: 0;
   overflow: hidden;
   background: transparent; 
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   color: #fff;
 }
 
-/* CONTAINER PRINCIPAL */
+/* ==========================================
+   WIDGET DE DATA, HORA E CLIMA (MODERNO)
+   ========================================== */
+.widget-moderno {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinha o texto elegantemente à direita */
+  gap: 4px;
+  padding: 15px 25px;
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+}
+
+.widget-moderno .hora {
+  font-size: 54px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+.widget-moderno .data-clima {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.9;
+  text-transform: capitalize; /* Deixa o dia da semana bonitinho */
+}
+
+.widget-moderno .clima-grupo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 12px;
+}
+
+.widget-moderno img {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
+}
+
+/* ==========================================
+   CAROUSEL E GUIA DE PROGRAMAÇÃO
+   ========================================== */
 .carousel-container {
   width: 100%;
   position: fixed;
@@ -29,14 +84,12 @@ html, body {
   z-index: 9999;
 }
 
-/* JANELA DE CORTE INTERNA */
 .carousel-wrapper {
   overflow: hidden;
   width: calc(100% - 80px); 
   margin: 0 auto;
 }
 
-/* GRID ESTRUTURADO */
 .carousel-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -45,23 +98,21 @@ html, body {
   width: 100%;
 }
 
-/* CARD CANAL */
 .channel {
   height: 140px;
   background: rgba(20, 20, 20, 0.8); 
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 16px;
   padding: 12px;
   border: 1px solid rgba(255,255,255,0.12);
   box-sizing: border-box;
-  
   display: flex;
   flex-direction: row; 
   align-items: center; 
   gap: 15px;               
 }
 
-/* CONTROLLER DA LOGO */
 .logo-container {
   width: 85px;
   height: 100%;
@@ -71,14 +122,12 @@ html, body {
   flex-shrink: 0; 
 }
 
-/* LOGO */
 .logo {
   max-width: 100%;
   max-height: 90px;
   object-fit: contain;
 }
 
-/* CONTEÚDO DE TEXTO */
 .channel-info {
   flex-grow: 1;
   display: flex;
@@ -87,7 +136,6 @@ html, body {
   min-width: 0; 
 }
 
-/* NOME CANAL */
 .title {
   font-size: 17px;
   font-weight: 600;
@@ -97,7 +145,6 @@ html, body {
   text-overflow: ellipsis;
 }
 
-/* PROGRAMA ATUAL */
 .program {
   font-size: 13px;
   line-height: 1.3;
@@ -107,7 +154,6 @@ html, body {
   -webkit-box-orient: vertical;
 }
 
-/* PROXIMO */
 .next {
   font-size: 12px;
   opacity: .7;
@@ -117,7 +163,6 @@ html, body {
   text-overflow: ellipsis;
 }
 
-/* BARRA PROGRESSO */
 .progress {
   height: 4px;
   background: rgba(255, 255, 255, 0.15);
@@ -131,27 +176,21 @@ html, body {
   background: #00c853; 
   border-radius: 10px;
 }
-
-/* RELÓGIO COORDENADO PARA TESTES */
-#relogio {
-  position: fixed;
-  top: 20px;
-  right: 40px;
-  font-size: 26px;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 12px 24px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 10000;
-  color: #00c853;
-}
 </style>
 </head>
 
 <body>
 
-<div id="relogio">00/00/0000 00:00:00</div>
+<div class="widget-moderno">
+  <div class="hora" id="hora">00:00</div>
+  <div class="data-clima">
+    <span id="data">Carregando data...</span>
+    <div class="clima-grupo">
+      <img id="icone" src="" style="display: none;">
+      <span id="temp">--°C</span>
+    </div>
+  </div>
+</div>
 
 <div class="carousel-container">
   <div class="carousel-wrapper">
@@ -162,17 +201,11 @@ html, body {
 <script>
 // ============================================================================
 // CALIBRAÇÃO DE FUSO HORÁRIO (SÃO PAULO / BRASÍLIA)
-// Arquivos globais de EPG costumam precisar de -3 para alinhar com o nosso fuso.
 const AJUSTE_MANUAL_HORAS = -4; 
 // ============================================================================
 
-// ===== FONTES DE EPG LOCAIS (Geradas pelo GitHub Actions) =====
-const EPG_URLS = [
-  "epg1.xml",
-  "epg2.xml"
-];
+const EPG_URLS = ["epg1.xml", "epg2.xml"];
 
-// LISTA DE CANAIS
 const canais = [
   {num:"01.1", nome:"JOVEM PAN", id:["Jovem.Pan.News.br","JovemPan.br","JovemPanNews.br","417187"], logo:"https://upload.wikimedia.org/wikipedia/commons/4/41/Logotipo_da_TV_Jovem_Pan_News.png"},
   {num:"01.3", nome:"H&H HD", id:["Sao.Paulo/SP..Discovery.Home.and.Health.br","São.Paulo/SP..Discovery.Home.and.Health.HD.br","DiscoveryHomeHealth.br","523310"], logo:"https://upload.wikimedia.org/wikipedia/commons/9/90/Discovery_H%26H_Logo_2022.webp"},
@@ -226,7 +259,7 @@ const canais = [
   {num:"35.5", nome:"SPACE", id:["Sao.Paulo/SP..Space.br","São.Paulo/SP..Space.HD.³.br","Space.br","425968","426009","523347"], logo:"https://upload.wikimedia.org/wikipedia/commons/1/1a/SpaceLogo.svg"},
   {num:"35.5", nome:"CINE BRASIL", id:["Sao.Paulo/SP..Cine.Brasil","CineBrasilTV.br"], logo:"https://www.cinebrasil.tv/images/semFoto.png"},
   {num:"38.1", nome:"TV APARECIDA", id:["Sao.Paulo/SP..TV.Aparecida.br","Belo.Horizonte/MG...TV.Aparecida.(espelho).br","TVAparecida.br","523345"], logo:"https://upload.wikimedia.org/wikipedia/pt/1/1e/Logotipo_da_TV_Aparecida.png"},
-  {num:"39.1", nome:"SBT", id:["Sao.Paulo/SP..SBT.br","São.Paulo/SP..SBT.HD.br","SBT.br","523298"], logo:"https://upload.wikimedia.org/wikipedia/pt/4/41/Logotipo_do_SBT.svg"},
+  {num:"39.1", nome:"SBT", id:["Sao.Paulo/SP..SBT.br","São.Paulo/SP..SBT.HD.br","SBT.br","523298"], logo:"https://upload.wikimedia.org/wikipedia/pt/4/41/Logotipo do SBT.svg"},
   {num:"41.1", nome:"MAIS FAMILIA", id:["Sao.Paulo/SP..MAIS.FAMILIA.br","RedeMaisFamilia.br"], logo:"https://upload.wikimedia.org/wikipedia/pt/3/31/Logo-rede-mais-familia.png"},
   {num:"41.2", nome:"BOAS NOVAS", id:["Sao.Paulo/SP..BoasNovas.br","BoasNovas.br"], logo:"https://upload.wikimedia.org/wikipedia/pt/3/39/Rede_Boas_Novas.png"},
   {num:"45.1", nome:"CANAL DO BOI", id:["Campinas/SP..Canal.do.Boi.br","CanalDoBoi.br","523289"], logo:"https://upload.wikimedia.org/wikipedia/commons/c/c3/Logo_Canal_do_Boi_-_PNG.png"},
@@ -262,29 +295,67 @@ let cacheProgramas = [];
 let paginaAtual = 0;
 const itensPorPagina = 6; 
 
-/* ===== SINCRO RELÓGIO E DATA SÃO PAULO ===== */
+/* ===== SINCRO RELÓGIO E DATA SÃO PAULO (MODERNO) ===== */
 function atualizarRelogio(){
   const agora = new Date();
-  const dataHoraBR = agora.toLocaleString("pt-BR", {
+  
+  // 1. Gera a hora formatada
+  const strHora = agora.toLocaleTimeString("pt-BR", {
     timeZone: "America/Sao_Paulo",
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
     hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit"
+    minute: "2-digit"
   });
   
-  const elRelogio = document.getElementById("relogio");
-  if(elRelogio) elRelogio.innerText = dataHoraBR;
+  // 2. Gera o dia da semana abreviado e a data (Ex: sex, 12/06)
+  const strData = agora.toLocaleDateString("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+    weekday: "short",
+    day: "2-digit",
+    month: "2-digit"
+  }).replace('.', ''); // Remove pontuações indesejadas que alguns navegadores inserem
+
+  document.getElementById("hora").innerText = strHora;
+  document.getElementById("data").innerText = strData;
 }
 setInterval(atualizarRelogio, 1000);
 atualizarRelogio();
 
-/* ===== PARSER ANALISADOR MATEMÁTICO (CORRIGIDO PARA SÃO PAULO) ===== */
+/* ===== CLIMA DINÂMICO (LEME - SP) ===== */
+async function carregarClima() {
+  try {
+    const lat = -22.18;
+    const lon = -47.39;
+
+    const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+    const data = await res.json();
+
+    const temp = Math.round(data.current_weather.temperature);
+    const code = data.current_weather.weathercode;
+
+    document.getElementById("temp").innerText = `${temp}°C`;
+
+    let icon = "01d";
+    if (code === 0) icon = "01d";
+    else if ([1,2,3].includes(code)) icon = "02d";
+    else if ([45,48].includes(code)) icon = "50d";
+    else if ([51,53,55,61,63,65].includes(code)) icon = "10d";
+    else if ([71,73,75].includes(code)) icon = "13d";
+    else if ([95,96,99].includes(code)) icon = "11d";
+
+    const imgIcone = document.getElementById("icone");
+    imgIcone.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    imgIcone.style.display = "block"; // Só mostra o ícone quando ele for carregado
+
+  } catch (e) {
+    console.log("Erro clima:", e);
+  }
+}
+carregarClima();
+setInterval(carregarClima, 600000); // Atualiza o clima a cada 10 minutos
+
+/* ===== PARSER ANALISADOR MATEMÁTICO ===== */
 function parseDate(t) {
   if (!t) return 0;
-
   const partes = t.trim().split(/\s+/);
   const limpo = partes[0];
   const fusoOriginal = partes[1] || "+0000";
@@ -307,7 +378,6 @@ function parseDate(t) {
 
   utcMs = utcMs - (sinal * offsetMs);
 
-  // Aplica o fuso de calibração (-3 horas)
   return utcMs + (AJUSTE_MANUAL_HORAS * 60 * 60 * 1000);
 }
 
@@ -388,7 +458,7 @@ function renderizarSlide() {
   box.innerHTML = htmlFinal;
 }
 
-/* ===== DOWNLOAD DA EPG COM EVASÃO DE CACHE (ANTI-CORS) ===== */
+/* ===== DOWNLOAD DA EPG ===== */
 function atualizar(){
   const agora = Date.now();
   const todosOsIdsValidos = canais.flatMap(c => c.id);
@@ -431,11 +501,9 @@ function atualizar(){
 
   Promise.all(requisicoes).then(resultados => {
     const novosProgramas = resultados.flat();
-    
     if (novosProgramas.length > 0) {
       cacheProgramas = novosProgramas;
     }
-    
     renderizarSlide(); 
   });
 }
@@ -443,7 +511,7 @@ function atualizar(){
 atualizar();
 setInterval(atualizar, 60000); 
 
-/* ===== ROTAÇÃO DO CAROUSEL (A cada 15 Segundos) ===== */
+/* ===== ROTAÇÃO DO CAROUSEL ===== */
 setInterval(() => {
   const totalPaginas = Math.ceil(canais.length / itensPorPagina);
   paginaAtual++;
