@@ -4,7 +4,11 @@ on:
   schedule:
     # Roda todos os dias às 06:00 UTC (03:00 no horário de Brasília)
     - cron: '0 6 * * *'
-  workflow_dispatch: # Permite que você force a atualização manualmente se quiser
+  workflow_dispatch: # Permite forçar a atualização manualmente
+
+# CORREÇÃO DO AVISO: Força as ações a rodarem no Node.js 24 moderno
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   build:
@@ -16,7 +20,6 @@ jobs:
 
     - name: Baixar o arquivo EPG atualizado
       run: |
-        # Baixa da fonte mais estável e salva como epg.xml substituindo o antigo
         curl -L "https://epgshare01.online/epgshare01/epg_ripper_BR1.xml" -o epg.xml
 
     - name: Commit e Push das alterações
