@@ -19,7 +19,7 @@ jobs:
     - name: Baixar os arquivos EPG atualizados
       run: |
         # Fonte 1: epgshare01
-        curl -L "https://epgshare01.online/epgshare01/epg_ripper_BR1.xml" -o epg1.xml
+        curl -L "https://epgshare01.online/epgshare01/epg_ripper_BR1.xml.gz" -o epg1.xml
         
         # Fonte 2: epg.pw (ou outra de sua preferência)
         curl -L "https://epg.pw/xmltv/epg_BR.xml" -o epg2.xml
