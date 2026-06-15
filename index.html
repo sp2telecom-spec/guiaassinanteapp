@@ -204,6 +204,10 @@ html, body {
 // Substitua SEU_USUARIO e SEU_REPOSITORIO abaixo pelos seus dados reais.
 // ============================================================================
 const EPG_URLS = [
+ {
+    url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg3.xml",
+    ajusteHoras: 0 // epgshare01 BR2 também herdando as 34h de calibração
+  },
   {
     url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg1.xml",
     ajusteHoras: 13 // epgshare01 BR1 precisa de calibração manual
@@ -211,11 +215,8 @@ const EPG_URLS = [
   {
     url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg2.xml",
     ajusteHoras: 0  // epg.pw geralmente entrega no fuso UTC/BR correto
-  },
-  {
-    url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg3.xml",
-    ajusteHoras: 0 // epgshare01 BR2 também herdando as 34h de calibração
   }
+  
 ];
 
 const canais = [
