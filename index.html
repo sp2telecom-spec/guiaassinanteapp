@@ -200,19 +200,29 @@ html, body {
 
 <script>
 // ============================================================================
-// FORÇAR CORREÇÃO DE ATRASO (Em Horas)
-// Como o XML está atrasando a leitura em 34 horas, inserimos +34 para somar
-// e empurrar a programação de volta para o tempo real correto.
-const CORRECAO_MANUAL_HORAS = 0; 
+// CONFIGURAÇÃO DE FONTES COM CONTROLE DE CORREÇÃO INDIVIDUAL
 // ============================================================================
-
 const EPG_URLS = [
-  //"https://www.free-epg.de/api/epg?country=BR",//
-  //"https://epg.pw/xmltv/epg_BR.xml",//
-  //"https://epgshare01.online/epgshare01/epg_ripper_BR1.xml",//
-  "epg1.xml",
-  "epg2.xml"
-  
+  {
+    url: "https://raw.githubusercontent.com/Fazzani/epg/master/brazil.xml",
+    ajusteHoras: 0
+  },
+  {
+    url: "https://iptv-org.github.io/epg/guides/br/mi.tv.xml",
+    ajusteHoras: 0
+  },
+  {
+    url: "https://epgshare01.online/epgshare01/epg_ripper_BR1.xml",
+    ajusteHoras: 34 // Mantém o atraso de 34 horas corrigido apenas para esta fonte
+  }//,
+  // {
+   // url: "epg1.xml",
+   // ajusteHoras: 0 // Mantém o atraso de 34 horas corrigido apenas para esta fonte
+  //},
+   //{
+    //url: "epg2.xml",
+    //ajusteHoras: 0 // Mantém o atraso de 34 horas corrigido apenas para esta fonte
+ // }
 ];
 
 const canais = [
@@ -299,6 +309,7 @@ const canais = [
   {num:"69.4", nome:"PRIME BOX", id:["primebox", "PrimeBoxBrazil.br", "PrimeBox.br", "426151"], logo:"https://upload.wikimedia.org/wikipedia/commons/1/16/PrimeBoxBrazil2019.png"},
   {num:"69.5", nome:"CAZE TV", id:["caze_tv", "cazetv", "CazeTV.br", "Caze.tv"], logo:"https://upload.wikimedia.org/wikipedia/pt/2/22/Logotipo_da_Caz%C3%A9TV.png"}
 ];
+
 let cacheProgramas = []; 
 let paginaAtual = 0;
 const itensPorPagina = 6; 
@@ -351,8 +362,8 @@ function obterClima() {
 obterClima();
 setInterval(obterClima, 900000);
 
-/* ===== PARSER COM CORREÇÃO DE ATRASO DO XML ===== */
-function parseDate(t) {
+/* ===== PARSER COM CONTROLE INDIVIDUAL DE FUSO E ATRASO ===== */
+function parseDate(t, ajusteHoras = 0) {
   if (!t) return 0;
   
   const limpoStr = t.replace(/\s+/g, ' ').trim();
@@ -383,12 +394,10 @@ function parseDate(t) {
   if (isNaN(fusoMinutos)) fusoMinutos = 0;
 
   const offsetMs = ((fusoHoras * 60) + fusoMinutos) * 60 * 1000;
-  
-  // Horário bruto lido do arquivo XML
   let resultadoMs = utcMs - (sinal * offsetMs);
 
-  // APLICAÇÃO DA CORREÇÃO DE ATRASO (Soma as 34 horas que o arquivo está atrasado)
-  resultadoMs += (CORRECAO_MANUAL_HORAS * 60 * 60 * 1000);
+  // Aplica a compensação individual parametrizada daquela fonte específica
+  resultadoMs += (ajusteHoras * 60 * 60 * 1000);
 
   return resultadoMs;
 }
@@ -409,7 +418,7 @@ function hora(timestamp){
   });
 }
 
-/* ===== RENDEREZADOR COMPLETO ===== */
+/* ===== RENDERIZADOR COMPLETO ===== */
 function renderizarSlide() {
   const box = document.getElementById("carousel");
   if (!box) return;
@@ -467,13 +476,13 @@ function renderizarSlide() {
   box.innerHTML = htmlFinal;
 }
 
-/* ===== CAPTURA, LIMPEZA E PROCESSAMENTO DA GRADE ===== */
+/* ===== CAPTURA E CONVERSÃO COM PROMISE.ALL ===== */
 function atualizar(){
   const agora = Date.now();
   const todosOsIdsValidos = canais.flatMap(c => c.id);
 
-  const requisicoes = EPG_URLS.map(url => 
-    fetch(url)
+  const requisicoes = EPG_URLS.map(fonte => 
+    fetch(fonte.url)
       .then(r => r.text())
       .then(str => new DOMParser().parseFromString(str, "text/xml"))
       .then(xml => {
@@ -484,10 +493,10 @@ function atualizar(){
           const chId = p.getAttribute("channel");
           
           if (todosOsIdsValidos.includes(chId)) {
-            const startMs = parseDate(p.getAttribute("start"));
-            const stopMs = parseDate(p.getAttribute("stop"));
+            // Repassa o ajusteHoras específico da linha configurada para o parser
+            const startMs = parseDate(p.getAttribute("start"), fonte.ajusteHoras);
+            const stopMs = parseDate(p.getAttribute("stop"), fonte.ajusteHoras);
 
-            // Mantém no cache apenas o que ainda vai passar ou está passando com a data corrigida
             if (stopMs > agora) {
               extraidos.push({
                 channel: chId,
@@ -501,7 +510,7 @@ function atualizar(){
         return extraidos;
       })
       .catch(err => {
-        console.warn(`Erro no link: ${url}`);
+        console.warn(`Erro no link: ${fonte.url}`);
         return [];
       })
   );
@@ -512,7 +521,7 @@ function atualizar(){
   });
 }
 
-// Inicializações periódicas de rotina
+// Inicializações periódicas automáticas
 atualizar();
 setInterval(atualizar, 60000); 
 
