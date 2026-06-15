@@ -18,16 +18,21 @@ jobs:
 
     - name: Baixar os arquivos EPG atualizados
       run: |
-        # Fonte 1: epgshare01
-        curl -L "https://epgshare01.online/epgshare01/epg_ripper_BR1.xml.gz" -o epg1.xml
+        # Fonte 1: epgshare01 (BR1)
+        curl -L "https://epgshare01.online/epgshare01/epg_ripper_BR1.xml.gz" -o epg1.xml.gz
+        gunzip -f epg1.xml.gz # Descompacta gerando o epg1.xml puro
         
-        # Fonte 2: epg.pw (ou outra de sua preferência)
+        # Fonte 2: epg.pw
         curl -L "https://epg.pw/xmltv/epg_BR.xml" -o epg2.xml
+
+        # Fonte 3: epgshare01 (BR2) - Nova Fonte Compactada
+        curl -L "https://epgshare01.online/epgshare01/epg_ripper_BR2.xml.gz" -o epg3.xml.gz
+        gunzip -f epg3.xml.gz # Descompacta gerando o epg3.xml puro
 
     - name: Commit e Push das alterações
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add epg1.xml epg2.xml
-        git diff-index --quiet HEAD || git commit -m "Atualização automática das fontes de EPG"
+        git add epg1.xml epg2.xml epg3.xml
+        git diff-index --quiet HEAD || git commit -m "Atualização automática das fontes de EPG (Fontes 1, 2 e 3)"
         git push
