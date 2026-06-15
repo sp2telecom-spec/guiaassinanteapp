@@ -199,15 +199,19 @@ html, body {
 </div>
 
 <script>
-// ===== FONTES DE EPG =====
+// ============================================================================
+// FORÇAR CORREÇÃO DE ATRASO (Em Horas)
+// Como o XML está atrasando a leitura em 34 horas, inserimos +34 para somar
+// e empurrar a programação de volta para o tempo real correto.
+const CORRECAO_MANUAL_HORAS = 34; 
+// ============================================================================
+
 const EPG_URLS = [
-  "epg1.xml",
-  "epg2.xml",
+  "epg.xml",
   "https://epg.pw/xmltv/epg_BR.xml",
   "https://epgshare01.online/epgshare01/epg_ripper_BR1.xml"
 ];
 
-// LISTA DE CANAIS
 const canais = [
   {num:"01.1", nome:"JOVEM PAN", id:["Jovem.Pan.News.br","JovemPan.br","JovemPanNews.br","417187"], logo:"https://upload.wikimedia.org/wikipedia/commons/4/41/Logotipo_da_TV_Jovem_Pan_News.png"},
   {num:"01.3", nome:"H&H HD", id:["Sao.Paulo/SP..Discovery.Home.and.Health.br","São.Paulo/SP..Discovery.Home.and.Health.HD.br","DiscoveryHomeHealth.br","523310"], logo:"https://upload.wikimedia.org/wikipedia/commons/9/90/Discovery_H%26H_Logo_2022.webp"},
@@ -297,11 +301,9 @@ let cacheProgramas = [];
 let paginaAtual = 0;
 const itensPorPagina = 6; 
 
-/* ===== RELÓGIO E DATA (WIDGET SUPERIOR) ===== */
+/* ===== DATA E HORA DO COMPONENTE SUPERIOR ===== */
 function atualizarWidgetHorario() {
   const agora = new Date();
-  
-  // Atualiza Hora
   const hElement = document.getElementById("hora");
   if(hElement) {
     hElement.innerText = agora.toLocaleTimeString("pt-BR", {
@@ -310,8 +312,6 @@ function atualizarWidgetHorario() {
       minute: "2-digit"
     });
   }
-
-  // Atualiza Data (Ex: Sábado, 13 de Junho)
   const dElement = document.getElementById("data");
   if(dElement) {
     const opcoes = { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'America/Sao_Paulo' };
@@ -321,9 +321,8 @@ function atualizarWidgetHorario() {
 setInterval(atualizarWidgetHorario, 1000);
 atualizarWidgetHorario();
 
-/* ===== MOTOR DE CLIMA AUTOMÁTICO (FREE) ===== */
+/* ===== MOTOR DO CLIMA (ATUALIZAÇÃO DE 15 MIN) ===== */
 function obterClima() {
-  // Coordenadas padrão de Leme / São Paulo
   const lat = -22.18;
   const lon = -47.38;
   const urlClima = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
@@ -334,26 +333,23 @@ function obterClima() {
       if(dados && dados.current_weather) {
         const temp = Math.round(dados.current_weather.temperature);
         const code = dados.current_weather.weathercode;
-        
         document.getElementById("temp").innerText = `${temp}°C`;
         
-        // Mapeamento básico de ícones climáticos nativos baseados em códigos mundiais
-        let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; // Sol padrao
-        if(code >= 1 && code <= 3) imgUrl = "https://cdn-icons-png.flaticon.com/512/1163/1163736.png"; // Nublado
-        if(code >= 51 && code <= 67) imgUrl = "https://cdn-icons-png.flaticon.com/512/3351/3351979.png"; // Chuva
-        if(code >= 80) imgUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png"; // Tempestade
+        let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; 
+        if(code >= 1 && code <= 3) imgUrl = "https://cdn-icons-png.flaticon.com/512/1163/1163736.png"; 
+        if(code >= 51 && code <= 67) imgUrl = "https://cdn-icons-png.flaticon.com/512/3351/3351979.png"; 
+        if(code >= 80) imgUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png"; 
         
         const imgEl = document.getElementById("icone");
         imgEl.src = imgUrl;
         imgEl.style.display = "block";
       }
-    })
-    .catch(() => console.log("Falha ao obter clima. Reconectando em breve."));
+    }).catch(() => {});
 }
 obterClima();
-setInterval(obterClima, 900000); // Atualiza o clima a cada 15 minutos
+setInterval(obterClima, 900000);
 
-/* ===== PARSER MATEMÁTICO BLINDADO CONTRA ESPAÇOS ===== */
+/* ===== PARSER COM CORREÇÃO DE ATRASO DO XML ===== */
 function parseDate(t) {
   if (!t) return 0;
   
@@ -385,7 +381,14 @@ function parseDate(t) {
   if (isNaN(fusoMinutos)) fusoMinutos = 0;
 
   const offsetMs = ((fusoHoras * 60) + fusoMinutos) * 60 * 1000;
-  return utcMs - (sinal * offsetMs);
+  
+  // Horário bruto lido do arquivo XML
+  let resultadoMs = utcMs - (sinal * offsetMs);
+
+  // APLICAÇÃO DA CORREÇÃO DE ATRASO (Soma as 34 horas que o arquivo está atrasado)
+  resultadoMs += (CORRECAO_MANUAL_HORAS * 60 * 60 * 1000);
+
+  return resultadoMs;
 }
 
 function calc(start, stop){
@@ -404,7 +407,7 @@ function hora(timestamp){
   });
 }
 
-/* ===== RENDERIZADOR ROBUSTO COM FILTRO CRONOLÓGICO ===== */
+/* ===== RENDEREZADOR COMPLETO ===== */
 function renderizarSlide() {
   const box = document.getElementById("carousel");
   if (!box) return;
@@ -462,7 +465,7 @@ function renderizarSlide() {
   box.innerHTML = htmlFinal;
 }
 
-/* ===== FILTRAGEM, DOWNLOAD E ZERAGEM DE CACHE COLETIVO ===== */
+/* ===== CAPTURA, LIMPEZA E PROCESSAMENTO DA GRADE ===== */
 function atualizar(){
   const agora = Date.now();
   const todosOsIdsValidos = canais.flatMap(c => c.id);
@@ -482,6 +485,7 @@ function atualizar(){
             const startMs = parseDate(p.getAttribute("start"));
             const stopMs = parseDate(p.getAttribute("stop"));
 
+            // Mantém no cache apenas o que ainda vai passar ou está passando com a data corrigida
             if (stopMs > agora) {
               extraidos.push({
                 channel: chId,
@@ -495,7 +499,7 @@ function atualizar(){
         return extraidos;
       })
       .catch(err => {
-        console.warn(`Erro na fonte: ${url}`, err);
+        console.warn(`Erro no link: ${url}`);
         return [];
       })
   );
@@ -506,11 +510,11 @@ function atualizar(){
   });
 }
 
-// Inicializações
+// Inicializações periódicas de rotina
 atualizar();
 setInterval(atualizar, 60000); 
 
-/* ===== TROCA AUTOMÁTICA DE PÁGINA (15 Segundos) ===== */
+/* ===== PÁGINAÇÃO DO CARROSSEL (A CADA 15 SEG) ===== */
 setInterval(() => {
   const totalPaginas = Math.ceil(canais.length / itensPorPagina);
   paginaAtual++;
