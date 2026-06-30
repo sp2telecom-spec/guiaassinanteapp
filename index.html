@@ -237,7 +237,7 @@ html, body {
 
 <script>
 // ============================================================================
-// CONFIGURAÇÃO DE FONTES APONTANDO PARA O SEU GITHUB COM AJUSTE INDIVIDUAL
+// CONFIGURAÇÃO DE FONTES APONTANDO PARA O SEU GITHUB
 // ============================================================================
 const EPG_URLS = [
   {
@@ -367,7 +367,7 @@ setInterval(atualizarWidgetHorario, 1000);
 atualizarWidgetHorario();
 
 
-/* ===== NOVO MOTOR DE CLIMA MULTI-CIDADES ===== */
+/* ===== MOTOR DE CLIMA MULTI-CIDADES CORRIGIDO ===== */
 const CIDADES_CLIMA = [
   { nome: "📍 Artur Nogueira", lat: -22.57, lon: -47.17, temp: "--°C", icone: "", code: 0 },
   { nome: "📍 Cosmópolis", lat: -22.64, lon: -47.19, temp: "--°C", icone: "", code: 0 },
@@ -387,14 +387,28 @@ let paginaClimaAtual = 0;
 const cidadesPorSlide = 3;
 
 function processarIconeClima(code) {
+  // Código 0: Céu limpo absoluto -> Ícone de Sol
   let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; 
-  if(code >= 1 && code <= 3) imgUrl = "https://cdn-icons-png.flaticon.com/512/1163/1163736.png"; 
-  if(code >= 51 && code <= 67) imgUrl = "https://cdn-icons-png.flaticon.com/512/3351/3351979.png"; 
-  if(code >= 80) imgUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png";
+  
+  // Códigos 1 ou 2: Sol entre poucas nuvens / Parcialmente ensolarado
+  if(code === 1 || code === 2) {
+    imgUrl = "https://cdn-icons-png.flaticon.com/512/1163/1163736.png"; 
+  }
+  // Código 3: Totalmente Nublado / Encoberto
+  if(code === 3) {
+    imgUrl = "https://cdn-icons-png.flaticon.com/512/252/252035.png"; 
+  }
+  // Códigos 51 até 67: Chuvisco leve ou Chuva intermitente
+  if(code >= 51 && code <= 67) {
+    imgUrl = "https://cdn-icons-png.flaticon.com/512/3351/3351979.png"; 
+  }
+  // Códigos 80 ou maiores: Pancadas de chuva forte ou Tempestades
+  if(code >= 80) {
+    imgUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png"; 
+  }
   return imgUrl;
 }
 
-// Busca a previsão para todas as cidades em paralelo de 15 em 15 minutos
 function atualizarDadosDeTodasCidades() {
   CIDADES_CLIMA.forEach((cidade, index) => {
     const urlClima = `https://api.open-meteo.com/v1/forecast?latitude=${cidade.lat}&longitude=${cidade.lon}&current_weather=true`;
@@ -409,7 +423,6 @@ function atualizarDadosDeTodasCidades() {
   });
 }
 
-// Renderiza e avança de 3 em 3 cidades no Widget
 function rotacionarCidadesWidget() {
   const container = document.getElementById("container-clima");
   if(!container) return;
@@ -435,20 +448,19 @@ function rotacionarCidadesWidget() {
 
   container.innerHTML = htmlCidades;
 
-  // Prepara o próximo índice de página do clima
   paginaClimaAtual++;
   if(paginaClimaAtual * cidadesPorSlide >= totalCidades) {
     paginaClimaAtual = 0;
   }
 }
 
-// Inicializadores do Clima
+// Inicializações do Clima
 atualizarDadosDeTodasCidades();
-setInterval(atualizarDadosDeTodasCidades, 900000); // 15 minutos busca na API
+setInterval(atualizarDadosDeTodasCidades, 900000); 
 
-// Força uma renderização rápida inicial após carregar os dados
+// Força carregamento da interface após dados baixarem da API
 setTimeout(rotacionarCidadesWidget, 2000); 
-setInterval(rotacionarCidadesWidget, 10000); // Rotaciona as cidades a cada 10 segundos
+setInterval(rotacionarCidadesWidget, 10000); // Muda de cidades a cada 10 segundos
 
 
 /* ===== PARSER COM CONTROLE INDIVIDUAL DE FUSO E ATRASO ===== */
@@ -569,7 +581,7 @@ function renderizarSlide() {
   box.innerHTML = htmlFinal;
 }
 
-/* ===== CAPTURA E CONVERSÃO COM PROMISE.ALL ===== */
+/* ===== CAPTURA E CONVERSÃO DOS XMLS ===== */
 function atualizar(){
   const agora = Date.now();
   const todosOsIdsValidos = canais.flatMap(c => c.id);
@@ -614,7 +626,6 @@ function atualizar(){
   });
 }
 
-// Inicializações do Carrossel inferior
 atualizar();
 setInterval(atualizar, 60000); 
 
