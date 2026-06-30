@@ -17,17 +17,17 @@ html, body {
 }
 
 /* ==========================================
-   WIDGET DE DATA, HORA E CLIMA (MODERNO)
+   WIDGET DE CLIMA MULTI-CIDADES (LISTA ROTATIVA)
    ========================================== */
 .widget-moderno {
   position: fixed;
   top: 30px;
   right: 40px;
+  width: 320px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
-  gap: 4px;
-  padding: 15px 25px;
+  gap: 10px;
+  padding: 15px 20px;
   background: rgba(15, 15, 15, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -37,36 +37,69 @@ html, body {
   z-index: 10000;
 }
 
+.widget-moderno .header-relogio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
 .widget-moderno .hora {
-  font-size: 54px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 1;
-  text-shadow: 0 0 12px rgba(0,0,0,0.4);
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-.widget-moderno .data-clima {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 16px;
+.widget-moderno .data {
+  font-size: 13px;
   font-weight: 400;
-  opacity: 0.9;
-  text-transform: capitalize; 
+  opacity: 0.8;
+  text-transform: capitalize;
 }
 
-.widget-moderno .clima-grupo {
+.widget-moderno .lista-cidades {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.widget-moderno .item-cidade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.widget-moderno .cidade-nome {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.widget-moderno .clima-info {
   display: flex;
   align-items: center;
-  gap: 4px;
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  padding-left: 12px;
+  gap: 8px;
+}
+
+.widget-moderno .temp {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .widget-moderno img {
-  width: 32px;
-  height: 32px;
-  filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
 }
 
 /* ==========================================
@@ -163,7 +196,6 @@ html, body {
   text-overflow: ellipsis;
 }
 
-/* Estilo discreto para o indicador da fonte de EPG */
 .fonte-indicador {
   font-weight: bold;
   color: #00c853;
@@ -189,14 +221,12 @@ html, body {
 <body>
 
 <div class="widget-moderno">
-  <div class="hora" id="hora">00:00</div>
-  <div class="data-clima">
-    <span id="data">Carregando data...</span>
-    <div class="clima-grupo">
-      <img id="icone" src="" style="display: none;">
-      <span id="temp">--°C</span>
-    </div>
+  <div class="header-relogio">
+    <div class="hora" id="hora">00:00</div>
+    <div class="data" id="data">Carregando...</div>
   </div>
+  <div class="lista-cidades" id="container-clima">
+    </div>
 </div>
 
 <div class="carousel-container">
@@ -208,26 +238,24 @@ html, body {
 <script>
 // ============================================================================
 // CONFIGURAÇÃO DE FONTES APONTANDO PARA O SEU GITHUB COM AJUSTE INDIVIDUAL
-// Substitua SEU_USUARIO e SEU_REPOSITORIO abaixo pelos seus dados reais.
 // ============================================================================
 const EPG_URLS = [
   {
-    idFonte: 3, // Identificador interno da fonte 3
+    idFonte: 3,
     url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg3.xml",
     ajusteHoras: 0
   },
   {
-    idFonte: 1, // Identificador interno da fonte 1
+    idFonte: 1,
     url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg1.xml",
     ajusteHoras: 0
   },
   {
-    idFonte: 2, // Identificador interno da fonte 2
+    idFonte: 2,
     url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg2.xml",
     ajusteHoras: 0
   }
 ];
-
 
 const canais = [
   {num:"01.1", nome:"JOVEM PAN", id:["jovempannews", "jovem_pan_news", "JovemPanNews.br", "Jovem.Pan.News.br", "417187"], logo:"https://upload.wikimedia.org/wikipedia/commons/4/41/Logotipo_da_TV_Jovem_Pan_News.png"},
@@ -331,40 +359,97 @@ function atualizarWidgetHorario() {
   }
   const dElement = document.getElementById("data");
   if(dElement) {
-    const opcoes = { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'America/Sao_Paulo' };
+    const opcoes = { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'America/Sao_Paulo' };
     dElement.innerText = agora.toLocaleDateString("pt-BR", opcoes);
   }
 }
 setInterval(atualizarWidgetHorario, 1000);
 atualizarWidgetHorario();
 
-/* ===== MOTOR DO CLIMA (ATUALIZAÇÃO DE 15 MIN) ===== */
-function obterClima() {
-  const lat = -22.18;
-  const lon = -47.38;
-  const urlClima = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
 
-  fetch(urlClima)
-    .then(r => r.json())
-    .then(dados => {
-      if(dados && dados.current_weather) {
-        const temp = Math.round(dados.current_weather.temperature);
-        const code = dados.current_weather.weathercode;
-        document.getElementById("temp").innerText = `${temp}°C`;
-        
-        let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; 
-        if(code >= 1 && code <= 3) imgUrl = "https://cdn-icons-png.flaticon.com/512/1163/1163736.png"; 
-        if(code >= 51 && code <= 67) imgUrl = "https://cdn-icons-png.flaticon.com/512/3351/3351979.png"; 
-        if(code >= 80) imgUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png"; 
-        
-        const imgEl = document.getElementById("icone");
-        imgEl.src = imgUrl;
-        imgEl.style.display = "block";
-      }
-    }).catch(() => {});
+/* ===== NOVO MOTOR DE CLIMA MULTI-CIDADES ===== */
+const CIDADES_CLIMA = [
+  { nome: "📍 Artur Nogueira", lat: -22.57, lon: -47.17, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Cosmópolis", lat: -22.64, lon: -47.19, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Eng. Coelho", lat: -22.48, lon: -47.20, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Conchal", lat: -22.33, lon: -47.17, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Limeira", lat: -22.56, lon: -47.40, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Holambra", lat: -22.63, lon: -47.05, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Paulínia", lat: -22.76, lon: -47.15, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Leme", lat: -22.18, lon: -47.38, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 S. A. de Posse", lat: -22.60, lon: -46.91, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Sta C. da Conceição", lat: -22.13, lon: -47.46, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Mogi Mirim", lat: -22.43, lon: -46.95, temp: "--°C", icone: "", code: 0 },
+  { nome: "📍 Mogi Guaçu", lat: -22.37, lon: -46.94, temp: "--°C", icone: "", code: 0 }
+];
+
+let paginaClimaAtual = 0;
+const cidadesPorSlide = 3;
+
+function processarIconeClima(code) {
+  let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; 
+  if(code >= 1 && code <= 3) imgUrl = "https://cdn-icons-png.flaticon.com/512/1163/1163736.png"; 
+  if(code >= 51 && code <= 67) imgUrl = "https://cdn-icons-png.flaticon.com/512/3351/3351979.png"; 
+  if(code >= 80) imgUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png";
+  return imgUrl;
 }
-obterClima();
-setInterval(obterClima, 900000);
+
+// Busca a previsão para todas as cidades em paralelo de 15 em 15 minutos
+function atualizarDadosDeTodasCidades() {
+  CIDADES_CLIMA.forEach((cidade, index) => {
+    const urlClima = `https://api.open-meteo.com/v1/forecast?latitude=${cidade.lat}&longitude=${cidade.lon}&current_weather=true`;
+    fetch(urlClima)
+      .then(r => r.json())
+      .then(dados => {
+        if(dados && dados.current_weather) {
+          CIDADES_CLIMA[index].temp = `${Math.round(dados.current_weather.temperature)}°C`;
+          CIDADES_CLIMA[index].icone = processarIconeClima(dados.current_weather.weathercode);
+        }
+      }).catch(() => {});
+  });
+}
+
+// Renderiza e avança de 3 em 3 cidades no Widget
+function rotacionarCidadesWidget() {
+  const container = document.getElementById("container-clima");
+  if(!container) return;
+
+  const totalCidades = CIDADES_CLIMA.length;
+  const inicio = paginaClimaAtual * cidadesPorSlide;
+  const fim = inicio + cidadesPorSlide;
+  const listaExibicao = CIDADES_CLIMA.slice(inicio, fim);
+
+  let htmlCidades = "";
+  listaExibicao.forEach(c => {
+    const imgTag = c.icone ? `<img src="${c.icone}">` : '';
+    htmlCidades += `
+      <div class="item-cidade">
+        <div class="cidade-nome">${c.nome}</div>
+        <div class="clima-info">
+          ${imgTag}
+          <div class="temp">${c.temp}</div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = htmlCidades;
+
+  // Prepara o próximo índice de página do clima
+  paginaClimaAtual++;
+  if(paginaClimaAtual * cidadesPorSlide >= totalCidades) {
+    paginaClimaAtual = 0;
+  }
+}
+
+// Inicializadores do Clima
+atualizarDadosDeTodasCidades();
+setInterval(atualizarDadosDeTodasCidades, 900000); // 15 minutos busca na API
+
+// Força uma renderização rápida inicial após carregar os dados
+setTimeout(rotacionarCidadesWidget, 2000); 
+setInterval(rotacionarCidadesWidget, 10000); // Rotaciona as cidades a cada 10 segundos
+
 
 /* ===== PARSER COM CONTROLE INDIVIDUAL DE FUSO E ATRASO ===== */
 function parseDate(t, ajusteHoras = 0) {
@@ -421,7 +506,7 @@ function hora(timestamp){
   });
 }
 
-/* ===== RENDERIZADOR COMPLETO ===== */
+/* ===== RENDERIZADOR COMPLETO DO CARROSSEL ===== */
 function renderizarSlide() {
   const box = document.getElementById("carousel");
   if (!box) return;
@@ -452,7 +537,6 @@ function renderizarSlide() {
     let proxTitulo = prox?.title || "Sem info";
     let proxHora = prox ? hora(prox.start) : "--:--";
 
-    // Mapeamento dos símbolos baseados na fonte de onde o programa atual veio
     let simboloFonte = "";
     if (atual?.origem === 1) simboloFonte = ".";
     else if (atual?.origem === 2) simboloFonte = "..";
@@ -511,7 +595,7 @@ function atualizar(){
                 start: startMs,
                 stop: stopMs,
                 title: p.querySelector("title")?.textContent || "Sem título",
-                origem: fonte.idFonte // Adiciona o número da fonte no objeto do programa
+                origem: fonte.idFonte
               });
             }
           }
@@ -530,11 +614,11 @@ function atualizar(){
   });
 }
 
-// Inicializações periódicas automáticas
+// Inicializações do Carrossel inferior
 atualizar();
 setInterval(atualizar, 60000); 
 
-/* ===== PÁGINAÇÃO DO CARROSSEL (A CADA 15 SEG) ===== */
+/* ===== PÁGINAÇÃO DO CARROSSEL DE CANAIS (A CADA 15 SEG) ===== */
 setInterval(() => {
   const totalPaginas = Math.ceil(canais.length / itensPorPagina);
   paginaAtual++;
