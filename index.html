@@ -17,17 +17,17 @@ html, body {
 }
 
 /* ==========================================
-   WIDGET DE CLIMA MULTI-CIDADES (LISTA ROTATIVA)
+   WIDGET DE CLIMA MULTI-CIDADES (FONTES MAIORES)
    ========================================== */
 .widget-moderno {
   position: fixed;
   top: 30px;
   right: 40px;
-  width: 320px;
+  width: 360px; /* Largura levemente aumentada para acomodar fontes maiores */
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 15px 20px;
+  gap: 12px;
+  padding: 18px 22px;
   background: rgba(15, 15, 15, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -42,19 +42,19 @@ html, body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   margin-bottom: 4px;
 }
 
 .widget-moderno .hora {
-  font-size: 28px;
+  font-size: 36px; /* Aumentado de 28px */
   font-weight: 700;
   letter-spacing: 0.5px;
   text-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
 .widget-moderno .data {
-  font-size: 13px;
+  font-size: 16px; /* Aumentado de 13px */
   font-weight: 400;
   opacity: 0.8;
   text-transform: capitalize;
@@ -63,7 +63,7 @@ html, body {
 .widget-moderno .lista-cidades {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .widget-moderno .item-cidade {
@@ -71,39 +71,39 @@ html, body {
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .widget-moderno .cidade-nome {
-  font-size: 14px;
+  font-size: 17px; /* Aumentado de 14px */
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 180px;
+  max-width: 220px;
 }
 
 .widget-moderno .clima-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .widget-moderno .temp {
-  font-size: 16px;
+  font-size: 20px; /* Aumentado de 16px */
   font-weight: 600;
 }
 
 .widget-moderno img {
-  width: 24px;
-  height: 24px;
+  width: 28px; /* Ícone levemente maior para acompanhar o texto */
+  height: 28px;
   filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
 }
 
 /* ==========================================
-   CAROUSEL E GUIA DE PROGRAMAÇÃO
+   CAROUSEL E GUIA DE PROGRAMAÇÃO (FONTES MAIORES)
    ========================================== */
 .carousel-container {
   width: 100%;
@@ -126,18 +126,18 @@ html, body {
 .carousel-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 140px); 
+  grid-template-rows: repeat(2, 160px); /* Aumentado de 140px para caber os textos maiores */
   gap: 18px; 
   width: 100%;
 }
 
 .channel {
-  height: 140px;
+  height: 160px; /* Aumentado de 140px */
   background: rgba(20, 20, 20, 0.8); 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-radius: 16px;
-  padding: 12px;
+  padding: 14px;
   border: 1px solid rgba(255,255,255,0.12);
   box-sizing: border-box;
   display: flex;
@@ -147,7 +147,7 @@ html, body {
 }
 
 .logo-container {
-  width: 85px;
+  width: 95px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -157,7 +157,7 @@ html, body {
 
 .logo {
   max-width: 100%;
-  max-height: 90px;
+  max-height: 100px;
   object-fit: contain;
 }
 
@@ -170,7 +170,7 @@ html, body {
 }
 
 .title {
-  font-size: 17px;
+  font-size: 21px; /* Aumentado de 17px */
   font-weight: 600;
   margin-bottom: 4px;
   white-space: nowrap;
@@ -179,7 +179,7 @@ html, body {
 }
 
 .program {
-  font-size: 13px;
+  font-size: 16px; /* Aumentado de 13px */
   line-height: 1.3;
   overflow: hidden;
   display: -webkit-box;
@@ -188,7 +188,7 @@ html, body {
 }
 
 .next {
-  font-size: 12px;
+  font-size: 14px; /* Aumentado de 12px */
   opacity: .7;
   margin-top: 6px;
   white-space: nowrap;
@@ -203,7 +203,7 @@ html, body {
 }
 
 .progress {
-  height: 4px;
+  height: 5px;
   background: rgba(255, 255, 255, 0.15);
   margin-top: 8px;
   border-radius: 10px;
@@ -367,7 +367,7 @@ setInterval(atualizarWidgetHorario, 1000);
 atualizarWidgetHorario();
 
 
-/* ===== MOTOR DE CLIMA MULTI-CIDADES CORRIGIDO ===== */
+/* ===== MOTOR DE CLIMA MULTI-CIDADES ===== */
 const CIDADES_CLIMA = [
   { nome: "📍 Artur Nogueira", lat: -22.57, lon: -47.17, temp: "--°C", icone: "", code: 0 },
   { nome: "📍 Cosmópolis", lat: -22.64, lon: -47.19, temp: "--°C", icone: "", code: 0 },
@@ -387,22 +387,17 @@ let paginaClimaAtual = 0;
 const cidadesPorSlide = 3;
 
 function processarIconeClima(code) {
-  // Código 0: Céu limpo absoluto -> Ícone de Sol
   let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; 
   
-  // Códigos 1 ou 2: Sol entre poucas nuvens / Parcialmente ensolarado
   if(code === 1 || code === 2) {
     imgUrl = "https://cdn-icons-png.flaticon.com/512/1163/1163736.png"; 
   }
-  // Código 3: Totalmente Nublado / Encoberto
   if(code === 3) {
     imgUrl = "https://cdn-icons-png.flaticon.com/512/252/252035.png"; 
   }
-  // Códigos 51 até 67: Chuvisco leve ou Chuva intermitente
   if(code >= 51 && code <= 67) {
     imgUrl = "https://cdn-icons-png.flaticon.com/512/3351/3351979.png"; 
   }
-  // Códigos 80 ou maiores: Pancadas de chuva forte ou Tempestades
   if(code >= 80) {
     imgUrl = "https://cdn-icons-png.flaticon.com/512/1779/1779927.png"; 
   }
@@ -454,16 +449,14 @@ function rotacionarCidadesWidget() {
   }
 }
 
-// Inicializações do Clima
 atualizarDadosDeTodasCidades();
 setInterval(atualizarDadosDeTodasCidades, 900000); 
 
-// Força carregamento da interface após dados baixarem da API
 setTimeout(rotacionarCidadesWidget, 2000); 
-setInterval(rotacionarCidadesWidget, 10000); // Muda de cidades a cada 10 segundos
+setInterval(rotacionarCidadesWidget, 10000);
 
 
-/* ===== PARSER COM CONTROLE INDIVIDUAL DE FUSO E ATRASO ===== */
+/* ===== PARSER COM CONTROLE INDIVIDUAL DE FUSO ===== */
 function parseDate(t, ajusteHoras = 0) {
   if (!t) return 0;
   
@@ -629,7 +622,6 @@ function atualizar(){
 atualizar();
 setInterval(atualizar, 60000); 
 
-/* ===== PÁGINAÇÃO DO CARROSSEL DE CANAIS (A CADA 15 SEG) ===== */
 setInterval(() => {
   const totalPaginas = Math.ceil(canais.length / itensPorPagina);
   paginaAtual++;
