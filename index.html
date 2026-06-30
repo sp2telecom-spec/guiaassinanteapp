@@ -282,7 +282,6 @@ const EPG_URLS = [
   { idFonte: 2, url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg2.xml", ajusteHoras: 0 }
 ];
 
-// FILTRADO APENAS COM OS CANAIS MAIS POPULARES E CONHECIDOS (12 CANAIS / 2 PÁGINAS)
 const canais = [
   {num:"02.6", nome:"BAND", id:["band", "band.br", "Band.br", "BandSP.br", "Sao.Paulo/SP..Band.br", "São.Paulo/SP..Band.br", "523315"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2b/Rede_Bandeirantes_logo_2018.svg"},
   {num:"03.2", nome:"CNN BRASIL", id:["São.Paulo/SP..CNN.Brasil.HD.br", "São.Paulo/SP..CNN.Brasil.br", "CNNBrasil.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/8/8b/CNN_Brasil_%28red_background%29.svg"},
@@ -303,7 +302,7 @@ let cacheNoticias = [];
 let paginaAtual = 0; 
 let indexNoticiaAtual = 0;
 const itensPorPagina = 6; 
-const totalPaginasCanais = Math.ceil(canais.length / itensPorPagina); // Resulta em 2 páginas
+const totalPaginasCanais = Math.ceil(canais.length / itensPorPagina);
 
 function atualizarWidgetHorario() {
   const agora = new Date();
@@ -319,18 +318,18 @@ setInterval(atualizarWidgetHorario, 1000);
 atualizarWidgetHorario();
 
 const CIDADES_CLIMA = [
-  { nome: "Artur Nogueira", lat: -22.57, lon: -47.17, temp: "--°C", icone: "" },
-  { nome: "Cosmópolis", lat: -22.64, lon: -47.19, temp: "--°C", icone: "" },
-  { nome: "Eng. Coelho", lat: -22.48, lon: -47.20, temp: "--°C", icone: "" },
-  { nome: "Conchal", lat: -22.33, lon: -47.17, temp: "--°C", icone: "" },
-  { nome: "Limeira", lat: -22.56, lon: -47.40, temp: "--°C", icone: "" },
-  { nome: "Holambra", lat: -22.63, lon: -47.05, temp: "--°C", icone: "" },
-  { nome: "Paulínia", lat: -22.76, lon: -47.15, temp: "--°C", icone: "" },
-  { nome: "Leme", lat: -22.18, lon: -47.38, temp: "--°C", icone: "" },
-  { nome: "S. A. de Posse", lat: -22.60, lon: -46.91, temp: "--°C", icone: "" },
-  { nome: "Sta C. da Conceição", lat: -22.13, lon: -47.46, temp: "--°C", icone: "" },
-  { nome: "Mogi Mirim", lat: -22.43, lon: -46.95, temp: "--°C", icone: "" },
-  { nome: "Mogi Guaçu", lat: -22.37, lon: -46.94, temp: "--°C", icone: "" }
+  { nome: "📍 Artur Nogueira", lat: -22.57, lon: -47.17, temp: "--°C", icone: "" },
+  { nome: "📍 Cosmópolis", lat: -22.64, lon: -47.19, temp: "--°C", icone: "" },
+  { nome: "📍 Eng. Coelho", lat: -22.48, lon: -47.20, temp: "--°C", icone: "" },
+  { nome: "📍 Conchal", lat: -22.33, lon: -47.17, temp: "--°C", icone: "" },
+  { nome: "📍 Limeira", lat: -22.56, lon: -47.40, temp: "--°C", icone: "" },
+  { nome: "📍 Holambra", lat: -22.63, lon: -47.05, temp: "--°C", icone: "" },
+  { nome: "📍 Paulínia", lat: -22.76, lon: -47.15, temp: "--°C", icone: "" },
+  { nome: "📍 Leme", lat: -22.18, lon: -47.38, temp: "--°C", icone: "" },
+  { nome: "📍 S. A. de Posse", lat: -22.60, lon: -46.91, temp: "--°C", icone: "" },
+  { nome: "📍 Sta C. da Conceição", lat: -22.13, lon: -47.46, temp: "--°C", icone: "" },
+  { nome: "📍 Mogi Mirim", lat: -22.43, lon: -46.95, temp: "--°C", icone: "" },
+  { nome: "📍 Mogi Guaçu", lat: -22.37, lon: -46.94, temp: "--°C", icone: "" }
 ];
 
 let paginaClimaAtual = 0;
@@ -375,29 +374,66 @@ setInterval(atualizarDadosDeTodasCidades, 900000);
 setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
-/* MOTOR DE NOTÍCIAS DA REGIÃO (Mogi, Campinas, Limeira e interior) */
+/* MOTOR DE NOTÍCIAS COM FALLBACK CONTRA TRAVAMENTOS */
 function atualizarNoticias() {
-  // Consome feed público processado em JSON
-  fetch("https://api.rss2json.com/v1/api.json?rss_url=https://g1.globo.com/rss/g1/sp/campinas-regiao/")
+  const rssTarget = "https://g1.globo.com/rss/g1/sp/campinas-regiao/";
+  
+  // Tenta a primeira URL de processamento
+  fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssTarget)}`)
     .then(r => r.json())
     .then(dados => {
       if (dados && dados.items && dados.items.length > 0) {
-        cacheNoticias = dados.items.map(item => ({
-          titulo: item.title,
-          fonte: "G1 Campinas e Região",
-          data: item.pubDate
-        }));
+        mapearNoticias(dados.items);
+      } else {
+        tentarProvedorAlternativo(rssTarget);
       }
     })
     .catch(() => {
-      // Fallback caso falte internet ou API caia temporariamente
-      if(cacheNoticias.length === 0) {
-        cacheNoticias = [{ titulo: "Acompanhe as atualizações da nossa região em instantes.", fonte: "Sistema Regional", data: "" }];
-      }
+      tentarProvedorAlternativo(rssTarget);
     });
 }
+
+function tentarProvedorAlternativo(target) {
+  // Segunda opção de API caso a primeira dê erro na TV
+  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(target)}`)
+    .then(r => r.json())
+    .then(dados => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(dados.contents, "text/xml");
+      const items = Array.from(xml.querySelectorAll("item")).map(item => ({
+        title: item.querySelector("title")?.textContent || "",
+        pubDate: item.querySelector("pubDate")?.textContent || ""
+      }));
+      if(items.length > 0) {
+        mapearNoticias(items);
+      } else {
+        inserirNoticiasManuais();
+      }
+    })
+    .catch(() => {
+      inserirNoticiasManuais();
+    });
+}
+
+function mapearNoticias(lista) {
+  cacheNoticias = lista.map(item => ({
+    titulo: item.title,
+    fonte: "G1 Campinas e Região"
+  }));
+}
+
+function inserirNoticiasManuais() {
+  // Caso a TV esteja sem internet externa total no momento do carregamento
+  if(cacheNoticias.length === 0) {
+    cacheNoticias = [
+      { titulo: "Acompanhe as principais informações e atualizações da nossa região nesta tela.", fonte: "Plantão do Interior" },
+      { titulo: "Previsão do tempo regional atualizando automaticamente a cada 15 minutos no painel superior.", fonte: "Clima Monitor" }
+    ];
+  }
+}
+
 atualizarNoticias();
-setInterval(atualizarNoticias, 300000); // Checa novas notícias a cada 5 minutos
+setInterval(atualizarNoticias, 300000); // Recarrega o feed a cada 5 minutos
 
 function parseDate(t, ajusteHoras = 0) {
   if (!t) return 0;
@@ -415,29 +451,28 @@ function renderizarSlide() {
   if (!box) return;
   box.innerHTML = "";
 
-  // Se a página atual corresponder ao índice das notícias (Página 2, após as páginas 0 e 1 de canais)
+  // Tela de Notícias (Exibida na rotação após as páginas dos canais)
   if (paginaAtual === totalPaginasCanais) {
     if (cacheNoticias.length === 0) {
-      box.innerHTML = `<div class="news-full-card"><div class="news-title">Carregando Destaques Regionais...</div></div>`;
+      box.innerHTML = `<div class="news-full-card"><div class="news-title">Sincronizando Destaques Regionais...</div></div>`;
       return;
     }
     const noticia = cacheNoticias[indexNoticiaAtual];
     box.innerHTML = `
       <div class="news-full-card">
         <div class="news-header">
-          <span class="news-badge">Plantão de Notícias</span>
+          <span class="news-badge">Destaques da Região</span>
           <span class="news-source">Fonte: ${noticia.fonte}</span>
         </div>
         <div class="news-title">${noticia.titulo}</div>
         <div class="news-footer">Região de Cobertura Integrada • Atualizado Automático</div>
       </div>
     `;
-    // Passa para a próxima notícia para a próxima vez que esta tela aparecer
     indexNoticiaAtual = (indexNoticiaAtual + 1) % cacheNoticias.length;
     return;
   }
 
-  // Renderização normal dos canais da página atual (0 ou 1)
+  // Tela de Canais (Páginas 0 e 1)
   const now = Date.now();
   const canaisDaPagina = canais.slice(paginaAtual * itensPorPagina, (paginaAtual * itensPorPagina) + itensPorPagina);
   let html = "";
@@ -465,12 +500,11 @@ function atualizar(){
 atualizar();
 setInterval(atualizar, 60000); 
 
-// SISTEMA DE TRANSIÇÃO (Canal Pag 1 -> Canal Pag 2 -> Slide de Notícias)
+// Transição do painel a cada 15 segundos
 setInterval(() => {
-  // Vai até o total de páginas de canais + 1 (A página extra de notícias)
   paginaAtual = (paginaAtual + 1) % (totalPaginasCanais + 1); 
   renderizarSlide();
-}, 15000); // Muda a cada 15 segundos
+}, 15000);
 </script>
 
 </body>
