@@ -374,63 +374,69 @@ setInterval(atualizarDadosDeTodasCidades, 900000);
 setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
-/* MOTOR DE NOTÍCIAS OTIMIZADO PARA COMPATIBILIDADE PORTAL ON + G1 */
+/* MOTOR DE NOTÍCIAS COM ORGANIZAÇÃO ROUND-ROBIN (INTERCALADO POR FONTE) */
 function atualizarNoticias() {
-  const urlCampinas = "https://g1.globo.com/rss/g1/sp/campinas-regiao/";
-  const urlSaoCarlos = "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/";
-  
-  // Estrutura de feed explícita para evitar o bloqueio de segurança do PortalON
-  const urlArturNogueira = "https://portalon.com.br/arturnogueira/feed/";
-  const urlEngCoelho = "https://portalon.com.br/engenheirocoelho/feed/";
-  
-  let tempNoticias = [];
+  const fontes = [
+    { nome: "G1 Campinas e Região", url: "https://g1.globo.com/rss/g1/sp/campinas-regiao/", tipo: "rss2json" },
+    { nome: "G1 São Carlos (Leme/Central)", url: "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/", tipo: "rss2json" },
+    { nome: "Portal ON • Artur Nogueira", url: "https://portalon.com.br/arturnogueira/feed/", tipo: "xml" },
+    { nome: "Portal ON • Engenheiro Coelho", url: "https://portalon.com.br/engenheirocoelho/feed/", tipo: "xml" },
+    { nome: "Portal ON • S. A. de Posse", url: "https://portalon.com.br/santoantoniodeposse/feed/", tipo: "xml" },
+    { nome: "Portal ON • Jaguariúna", url: "https://portalon.com.br/jaguariuna/feed/", tipo: "xml" },
+    { nome: "Portal ON • Holambra", url: "https://portalon.com.br/holambra/feed/", tipo: "xml" },
+    { nome: "Portal ON • Paulínia", url: "https://portalon.com.br/paulinia/feed/", tipo: "xml" }
+  ];
 
-  // Usamos a AllOrigins direto para o Portal ON para mascarar a TV e evitar bloqueio CORS
-  Promise.all([
-    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(urlCampinas)}`).then(r => r.json()).catch(() => null),
-    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(urlSaoCarlos)}`).then(r => r.json()).catch(() => null),
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(urlArturNogueira)}`).then(r => r.json()).catch(() => null),
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(urlEngCoelho)}`).then(r => r.json()).catch(() => null)
-  ]).then(resultados => {
-    const parser = new DOMParser();
+  let baldesNoticias = {};
+  fontes.forEach(f => baldesNoticias[f.nome] = []);
 
-    // 1. Processa G1 Campinas
-    if (resultados[0] && resultados[0].items) {
-      resultados[0].items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 Campinas e Região" }));
+  const promessas = fontes.map(f => {
+    if (f.tipo === "rss2json") {
+      return fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(f.url)}`)
+        .then(r => r.json())
+        .then(dados => {
+          if (dados && dados.items) {
+            dados.items.forEach(item => baldesNoticias[f.nome].push({ titulo: item.title, fonte: f.nome }));
+          }
+        }).catch(() => null);
+    } else {
+      return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(f.url)}`)
+        .then(r => r.json())
+        .then(dados => {
+          if (dados && dados.contents) {
+            const xml = new DOMParser().parseFromString(dados.contents, "text/xml");
+            Array.from(xml.querySelectorAll("item")).slice(0, 8).forEach(item => {
+              const t = item.querySelector("title")?.textContent || "";
+              if (t) baldesNoticias[f.nome].push({ titulo: t, fonte: f.nome });
+            });
+          }
+        }).catch(() => null);
     }
-    // 2. Processa G1 São Carlos
-    if (resultados[1] && resultados[1].items) {
-      resultados[1].items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 São Carlos (Leme/Central)" }));
-    }
-    // 3. Processa Portal ON Artur Nogueira via XML Seguro
-    if (resultados[2] && resultados[2].contents) {
-      try {
-        const xml = parser.parseFromString(resultados[2].contents, "text/xml");
-        Array.from(xml.querySelectorAll("item")).slice(0, 10).forEach(item => {
-          const t = item.querySelector("title")?.textContent || "";
-          if(t) tempNoticias.push({ titulo: t, fonte: "Portal ON • Artur Nogueira" });
-        });
-      } catch(e){}
-    }
-    // 4. Processa Portal ON Eng Coelho via XML Seguro
-    if (resultados[3] && resultados[3].contents) {
-      try {
-        const xml = parser.parseFromString(resultados[3].contents, "text/xml");
-        Array.from(xml.querySelectorAll("item")).slice(0, 10).forEach(item => {
-          const t = item.querySelector("title")?.textContent || "";
-          if(t) tempNoticias.push({ titulo: t, fonte: "Portal ON • Engenheiro Coelho" });
-        });
-      } catch(e){}
+  });
+
+  Promise.all(promessas).then(() => {
+    let intercaladas = [];
+    let houveNovas = true;
+    let indexItem = 0;
+
+    // Lógica Round-Robin: Pega o item 0 de cada balde, depois o item 1 de cada balde...
+    while (houveNovas) {
+      houveNovas = false;
+      fontes.forEach(f => {
+        if (baldesNoticias[f.nome] && baldesNoticias[f.nome][indexItem]) {
+          intercaladas.push(baldesNoticias[f.nome][indexItem]);
+          houveNovas = true;
+        }
+      });
+      indexItem++;
+      if(indexItem > 30) break; // Trava de segurança
     }
 
-    // Se carregou notícias, mistura tudo. Senão vai pro manual.
-    if (tempNoticias.length > 0) {
-      cacheNoticias = tempNoticias.sort(() => Math.random() - 0.5);
+    if (intercaladas.length > 0) {
+      cacheNoticias = intercaladas;
     } else {
       inserirNoticiasManuais();
     }
-  }).catch(() => {
-    inserirNoticiasManuais();
   });
 }
 
@@ -475,7 +481,7 @@ function renderizarSlide() {
           <span class="news-source">${noticia.fonte}</span>
         </div>
         <div class="news-title">${noticia.titulo}</div>
-        <div class="news-footer">Região de Cobertura Integrada • Atualizado Automático</div>
+        <div class="news-footer">Região de Cobertura Integrada • Intercalado por Cidade</div>
       </div>
     `;
     indexNoticiaAtual = (indexNoticiaAtual + 1) % cacheNoticias.length;
