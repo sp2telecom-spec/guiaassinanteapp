@@ -366,7 +366,7 @@ function rotacionarCidadesWidget() {
     html += `<div class="item-cidade"><div class="cidade-nome">${c.nome}</div><div class="clima-info">${c.icone ? `<img src="${c.icone}">` : ''}<div class="temp">${c.temp}</div></div></div>`;
   });
   container.innerHTML = html;
-  paginaClimaAtual = (paginaClimaAtual + 1) % (CIDADES_CLIMA.length / cidadesPorSlide);
+  paginaClimaAtual = (paginaAtualClima = (paginaClimaAtual + 1) % (CIDADES_CLIMA.length / cidadesPorSlide));
 }
 
 atualizarDadosDeTodasCidades();
@@ -374,44 +374,35 @@ setInterval(atualizarDadosDeTodasCidades, 900000);
 setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
-/* MOTOR DE NOTÍCIAS COM ORGANIZAÇÃO ROUND-ROBIN (INTERCALADO POR FONTE) */
+/* MOTOR DE NOTÍCIAS RECONSTRUÍDO COM TRATAMENTO RSS INTEGRAL (EVITA CORS DO PORTAL ON) */
 function atualizarNoticias() {
   const fontes = [
-    { nome: "G1 Campinas e Região", url: "https://g1.globo.com/rss/g1/sp/campinas-regiao/", tipo: "rss2json" },
-    { nome: "G1 São Carlos (Leme/Central)", url: "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/", tipo: "rss2json" },
-    { nome: "Portal ON • Artur Nogueira", url: "https://portalon.com.br/arturnogueira/feed/", tipo: "xml" },
-    { nome: "Portal ON • Engenheiro Coelho", url: "https://portalon.com.br/engenheirocoelho/feed/", tipo: "xml" },
-    { nome: "Portal ON • S. A. de Posse", url: "https://portalon.com.br/santoantoniodeposse/feed/", tipo: "xml" },
-    { nome: "Portal ON • Jaguariúna", url: "https://portalon.com.br/jaguariuna/feed/", tipo: "xml" },
-    { nome: "Portal ON • Holambra", url: "https://portalon.com.br/holambra/feed/", tipo: "xml" },
-    { nome: "Portal ON • Paulínia", url: "https://portalon.com.br/paulinia/feed/", tipo: "xml" }
+    { nome: "G1 Campinas e Região", url: "https://g1.globo.com/rss/g1/sp/campinas-regiao/" },
+    { nome: "G1 São Carlos (Leme/Central)", url: "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/" },
+    { nome: "Portal ON • Artur Nogueira", url: "https://portalon.com.br/arturnogueira/feed/" },
+    { nome: "Portal ON • Engenheiro Coelho", url: "https://portalon.com.br/engenheirocoelho/feed/" },
+    { nome: "Portal ON • S. A. de Posse", url: "https://portalon.com.br/santoantoniodeposse/feed/" },
+    { nome: "Portal ON • Jaguariúna", url: "https://portalon.com.br/jaguariuna/feed/" },
+    { nome: "Portal ON • Holambra", url: "https://portalon.com.br/holambra/feed/" },
+    { nome: "Portal ON • Paulínia", url: "https://portalon.com.br/paulinia/feed/" }
   ];
 
   let baldesNoticias = {};
   fontes.forEach(f => baldesNoticias[f.nome] = []);
 
+  // Usamos a API estável rss2json para todas as fontes para pular o bloqueio Cloudflare do Portal ON
   const promessas = fontes.map(f => {
-    if (f.tipo === "rss2json") {
-      return fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(f.url)}`)
-        .then(r => r.json())
-        .then(dados => {
-          if (dados && dados.items) {
-            dados.items.forEach(item => baldesNoticias[f.nome].push({ titulo: item.title, fonte: f.nome }));
-          }
-        }).catch(() => null);
-    } else {
-      return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(f.url)}`)
-        .then(r => r.json())
-        .then(dados => {
-          if (dados && dados.contents) {
-            const xml = new DOMParser().parseFromString(dados.contents, "text/xml");
-            Array.from(xml.querySelectorAll("item")).slice(0, 8).forEach(item => {
-              const t = item.querySelector("title")?.textContent || "";
-              if (t) baldesNoticias[f.nome].push({ titulo: t, fonte: f.nome });
-            });
-          }
-        }).catch(() => null);
-    }
+    return fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(f.url)}&api_key=ca8p79jbe0fepf2fepd7ubsttvdg9sh0w10v2aay`)
+      .then(r => r.json())
+      .then(dados => {
+        if (dados && dados.items && dados.items.length > 0) {
+          dados.items.slice(0, 10).forEach(item => {
+            if(item.title) {
+              baldesNoticias[f.nome].push({ titulo: item.title, fonte: f.nome });
+            }
+          });
+        }
+      }).catch(() => null);
   });
 
   Promise.all(promessas).then(() => {
@@ -419,7 +410,7 @@ function atualizarNoticias() {
     let houveNovas = true;
     let indexItem = 0;
 
-    // Lógica Round-Robin: Pega o item 0 de cada balde, depois o item 1 de cada balde...
+    // Organização Round-Robin perfeita (1 notícia de cada fonte por vez)
     while (houveNovas) {
       houveNovas = false;
       fontes.forEach(f => {
@@ -429,7 +420,7 @@ function atualizarNoticias() {
         }
       });
       indexItem++;
-      if(indexItem > 30) break; // Trava de segurança
+      if(indexItem > 20) break; 
     }
 
     if (intercaladas.length > 0) {
