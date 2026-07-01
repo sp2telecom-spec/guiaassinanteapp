@@ -374,80 +374,77 @@ setInterval(atualizarDadosDeTodasCidades, 900000);
 setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
-/* MOTOR DE NOTÍCIAS INTEGRANDO CAMPINAS + SÃO CARLOS (LEME/SANTA CRUZ) */
+/* MOTOR DE NOTÍCIAS OTIMIZADO PARA COMPATIBILIDADE PORTAL ON + G1 */
 function atualizarNoticias() {
   const urlCampinas = "https://g1.globo.com/rss/g1/sp/campinas-regiao/";
   const urlSaoCarlos = "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/";
   
+  // Estrutura de feed explícita para evitar o bloqueio de segurança do PortalON
+  const urlArturNogueira = "https://portalon.com.br/arturnogueira/feed/";
+  const urlEngCoelho = "https://portalon.com.br/engenheirocoelho/feed/";
+  
   let tempNoticias = [];
 
-  // Puxa feeds convertidos via api.rss2json.com
+  // Usamos a AllOrigins direto para o Portal ON para mascarar a TV e evitar bloqueio CORS
   Promise.all([
     fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(urlCampinas)}`).then(r => r.json()).catch(() => null),
-    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(urlSaoCarlos)}`).then(r => r.json()).catch(() => null)
-  ]).then(resultados => {
-    const dadosCampinas = resultados[0];
-    const dadosSaoCarlos = resultados[1];
-
-    if (dadosCampinas && dadosCampinas.items) {
-      dadosCampinas.items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 Campinas e Região" }));
-    }
-    if (dadosSaoCarlos && dadosSaoCarlos.items) {
-      dadosSaoCarlos.items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 São Carlos e Araraquara" }));
-    }
-
-    if (tempNoticias.length > 0) {
-      // Embaralha as notícias para misturar as regiões de forma dinâmica
-      cacheNoticias = tempNoticias.sort(() => Math.random() - 0.5);
-    } else {
-      // Se a primeira API falhar, roda o plano B (AllOrigins) para ambos os locais
-      tentarProvedorAlternativo(urlCampinas, urlSaoCarlos);
-    }
-  });
-}
-
-function tentarProvedorAlternativo(targetCampinas, targetSaoCarlos) {
-  let tempNoticias = [];
-  
-  Promise.all([
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetCampinas)}`).then(r => r.json()).catch(() => null),
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetSaoCarlos)}`).then(r => r.json()).catch(() => null)
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(urlSaoCarlos)}`).then(r => r.json()).catch(() => null),
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(urlArturNogueira)}`).then(r => r.json()).catch(() => null),
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(urlEngCoelho)}`).then(r => r.json()).catch(() => null)
   ]).then(resultados => {
     const parser = new DOMParser();
-    
-    if (resultados[0] && resultados[0].contents) {
-      const xml = parser.parseFromString(resultados[0].contents, "text/xml");
-      Array.from(xml.querySelectorAll("item")).forEach(item => {
-        tempNoticias.push({ titulo: item.querySelector("title")?.textContent || "", fonte: "G1 Campinas" });
-      });
+
+    // 1. Processa G1 Campinas
+    if (resultados[0] && resultados[0].items) {
+      resultados[0].items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 Campinas e Região" }));
     }
-    
-    if (resultados[1] && resultados[1].contents) {
-      const xml = parser.parseFromString(resultados[1].contents, "text/xml");
-      Array.from(xml.querySelectorAll("item")).forEach(item => {
-        tempNoticias.push({ titulo: item.querySelector("title")?.textContent || "", fonte: "G1 São Carlos (Leme/Central)" });
-      });
+    // 2. Processa G1 São Carlos
+    if (resultados[1] && resultados[1].items) {
+      resultados[1].items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 São Carlos (Leme/Central)" }));
+    }
+    // 3. Processa Portal ON Artur Nogueira via XML Seguro
+    if (resultados[2] && resultados[2].contents) {
+      try {
+        const xml = parser.parseFromString(resultados[2].contents, "text/xml");
+        Array.from(xml.querySelectorAll("item")).slice(0, 10).forEach(item => {
+          const t = item.querySelector("title")?.textContent || "";
+          if(t) tempNoticias.push({ titulo: t, fonte: "Portal ON • Artur Nogueira" });
+        });
+      } catch(e){}
+    }
+    // 4. Processa Portal ON Eng Coelho via XML Seguro
+    if (resultados[3] && resultados[3].contents) {
+      try {
+        const xml = parser.parseFromString(resultados[3].contents, "text/xml");
+        Array.from(xml.querySelectorAll("item")).slice(0, 10).forEach(item => {
+          const t = item.querySelector("title")?.textContent || "";
+          if(t) tempNoticias.push({ titulo: t, fonte: "Portal ON • Engenheiro Coelho" });
+        });
+      } catch(e){}
     }
 
-    if(tempNoticias.length > 0) {
+    // Se carregou notícias, mistura tudo. Senão vai pro manual.
+    if (tempNoticias.length > 0) {
       cacheNoticias = tempNoticias.sort(() => Math.random() - 0.5);
     } else {
       inserirNoticiasManuais();
     }
+  }).catch(() => {
+    inserirNoticiasManuais();
   });
 }
 
 function inserirNoticiasManuais() {
   if(cacheNoticias.length === 0) {
     cacheNoticias = [
-      { titulo: "Acompanhe as principais informações e atualizações da nossa região nesta tela.", fonte: "Plantão do Interior" },
+      { titulo: "Acompanhe as principais informações e atualizações das nossas cidades nesta tela.", fonte: "Plantão do Interior" },
       { titulo: "Previsão do tempo regional atualizando automaticamente a cada 15 minutos no painel superior.", fonte: "Clima Monitor" }
     ];
   }
 }
 
 atualizarNoticias();
-setInterval(atualizarNoticias, 300000); // Corrigido bug de digitação do loop antigo
+setInterval(atualizarNoticias, 300000);
 
 function parseDate(t, ajusteHoras = 0) {
   if (!t) return 0;
@@ -475,7 +472,7 @@ function renderizarSlide() {
       <div class="news-full-card">
         <div class="news-header">
           <span class="news-badge">Destaques da Região</span>
-          <span class="news-source">Fonte: ${noticia.fonte}</span>
+          <span class="news-source">${noticia.fonte}</span>
         </div>
         <div class="news-title">${noticia.titulo}</div>
         <div class="news-footer">Região de Cobertura Integrada • Atualizado Automático</div>
