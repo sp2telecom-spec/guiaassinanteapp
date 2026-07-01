@@ -164,14 +164,14 @@ html, body {
 }
 
 .title {
-  font-size: 21px; /* Reduzido de 24px */
+  font-size: 21px;
   font-weight: 700;
   margin-bottom: 5px;
   color: #fff;
 }
 
 .program {
-  font-size: 16px; /* Reduzido de 18px */
+  font-size: 16px;
   line-height: 1.3;
   margin-bottom: 5px;
   display: -webkit-box;
@@ -181,7 +181,7 @@ html, body {
 }
 
 .next {
-  font-size: 14px; /* Reduzido de 15px */
+  font-size: 14px;
   opacity: .8;
   color: #ccc;
 }
@@ -333,7 +333,7 @@ const CIDADES_CLIMA = [
 ];
 
 let paginaClimaAtual = 0;
-const cidadesPorSlide = 2; // AJUSTADO: Apenas 2 cidades por exibição
+const cidadesPorSlide = 2;
 
 function processarIconeClima(code) {
   let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; 
@@ -374,49 +374,67 @@ setInterval(atualizarDadosDeTodasCidades, 900000);
 setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
-/* MOTOR DE NOTÍCIAS COM MULTI-FALLBACK */
+/* MOTOR DE NOTÍCIAS INTEGRANDO CAMPINAS + SÃO CARLOS (LEME/SANTA CRUZ) */
 function atualizarNoticias() {
-  const rssTarget = "https://g1.globo.com/rss/g1/sp/campinas-regiao/";
-  fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssTarget)}`)
-    .then(r => r.json())
-    .then(dados => {
-      if (dados && dados.items && dados.items.length > 0) {
-        mapearNoticias(dados.items);
-      } else {
-        tentarProvedorAlternativo(rssTarget);
-      }
-    })
-    .catch(() => {
-      tentarProvedorAlternativo(rssTarget);
-    });
+  const urlCampinas = "https://g1.globo.com/rss/g1/sp/campinas-regiao/";
+  const urlSaoCarlos = "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/";
+  
+  let tempNoticias = [];
+
+  // Puxa feeds convertidos via api.rss2json.com
+  Promise.all([
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(urlCampinas)}`).then(r => r.json()).catch(() => null),
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(urlSaoCarlos)}`).then(r => r.json()).catch(() => null)
+  ]).then(resultados => {
+    const dadosCampinas = resultados[0];
+    const dadosSaoCarlos = resultados[1];
+
+    if (dadosCampinas && dadosCampinas.items) {
+      dadosCampinas.items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 Campinas e Região" }));
+    }
+    if (dadosSaoCarlos && dadosSaoCarlos.items) {
+      dadosSaoCarlos.items.forEach(item => tempNoticias.push({ titulo: item.title, fonte: "G1 São Carlos e Araraquara" }));
+    }
+
+    if (tempNoticias.length > 0) {
+      // Embaralha as notícias para misturar as regiões de forma dinâmica
+      cacheNoticias = tempNoticias.sort(() => Math.random() - 0.5);
+    } else {
+      // Se a primeira API falhar, roda o plano B (AllOrigins) para ambos os locais
+      tentarProvedorAlternativo(urlCampinas, urlSaoCarlos);
+    }
+  });
 }
 
-function tentarProvedorAlternativo(target) {
-  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(target)}`)
-    .then(r => r.json())
-    .then(dados => {
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(dados.contents, "text/xml");
-      const items = Array.from(xml.querySelectorAll("item")).map(item => ({
-        title: item.querySelector("title")?.textContent || "",
-        pubDate: item.querySelector("pubDate")?.textContent || ""
-      }));
-      if(items.length > 0) {
-        mapearNoticias(items);
-      } else {
-        inserirNoticiasManuais();
-      }
-    })
-    .catch(() => {
+function tentarProvedorAlternativo(targetCampinas, targetSaoCarlos) {
+  let tempNoticias = [];
+  
+  Promise.all([
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetCampinas)}`).then(r => r.json()).catch(() => null),
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetSaoCarlos)}`).then(r => r.json()).catch(() => null)
+  ]).then(resultados => {
+    const parser = new DOMParser();
+    
+    if (resultados[0] && resultados[0].contents) {
+      const xml = parser.parseFromString(resultados[0].contents, "text/xml");
+      Array.from(xml.querySelectorAll("item")).forEach(item => {
+        tempNoticias.push({ titulo: item.querySelector("title")?.textContent || "", fonte: "G1 Campinas" });
+      });
+    }
+    
+    if (resultados[1] && resultados[1].contents) {
+      const xml = parser.parseFromString(resultados[1].contents, "text/xml");
+      Array.from(xml.querySelectorAll("item")).forEach(item => {
+        tempNoticias.push({ titulo: item.querySelector("title")?.textContent || "", fonte: "G1 São Carlos (Leme/Central)" });
+      });
+    }
+
+    if(tempNoticias.length > 0) {
+      cacheNoticias = tempNoticias.sort(() => Math.random() - 0.5);
+    } else {
       inserirNoticiasManuais();
-    });
-}
-
-function mapearNoticias(lista) {
-  cacheNoticias = lista.map(item => ({
-    titulo: item.title,
-    fonte: "G1 Campinas e Região"
-  }));
+    }
+  });
 }
 
 function inserirNoticiasManuais() {
@@ -429,7 +447,7 @@ function inserirNoticiasManuais() {
 }
 
 atualizarNoticias();
-setInterval(atualicias, 300000);
+setInterval(atualizarNoticias, 300000); // Corrigido bug de digitação do loop antigo
 
 function parseDate(t, ajusteHoras = 0) {
   if (!t) return 0;
