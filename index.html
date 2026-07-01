@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>GUIA TV + OVERLAY</title>
+<title>GUIA TV + APP SP2TV</title>
 
 <style>
 html, body {
@@ -17,7 +17,7 @@ html, body {
 }
 
 /* ==========================================
-   WIDGET DE CLIMA E RELÓGIO (TAMANHO MAXIMIZADO)
+   WIDGET DE CLIMA E RELÓGIO (2 CIDADES POR VEZ)
    ========================================== */
 .widget-moderno {
   position: fixed;
@@ -106,7 +106,7 @@ html, body {
 }
 
 /* ==========================================
-   CAROUSEL E LAYOUT DE TRANSIÇÃO (GUIA / NOTÍCIAS)
+   CAROUSEL E LAYOUT (FONTES DO GUIA REDUZIDAS)
    ========================================== */
 .carousel-container {
   width: 100%;
@@ -164,14 +164,14 @@ html, body {
 }
 
 .title {
-  font-size: 24px; 
+  font-size: 21px; /* Reduzido de 24px */
   font-weight: 700;
   margin-bottom: 5px;
   color: #fff;
 }
 
 .program {
-  font-size: 18px; 
+  font-size: 16px; /* Reduzido de 18px */
   line-height: 1.3;
   margin-bottom: 5px;
   display: -webkit-box;
@@ -181,7 +181,7 @@ html, body {
 }
 
 .next {
-  font-size: 15px; 
+  font-size: 14px; /* Reduzido de 15px */
   opacity: .8;
   color: #ccc;
 }
@@ -199,7 +199,7 @@ html, body {
   background: #00c853; 
 }
 
-/* CARD DE NOTÍCIAS INTEGRADAS EXCLUSIVO */
+/* CARD DE NOTÍCIAS */
 .news-full-card {
   grid-column: span 3;
   grid-row: span 2;
@@ -318,22 +318,22 @@ setInterval(atualizarWidgetHorario, 1000);
 atualizarWidgetHorario();
 
 const CIDADES_CLIMA = [
-  { nome: "📍 Artur Nogueira", lat: -22.57, lon: -47.17, temp: "--°C", icone: "" },
-  { nome: "📍 Cosmópolis", lat: -22.64, lon: -47.19, temp: "--°C", icone: "" },
-  { nome: "📍 Eng. Coelho", lat: -22.48, lon: -47.20, temp: "--°C", icone: "" },
-  { nome: "📍 Conchal", lat: -22.33, lon: -47.17, temp: "--°C", icone: "" },
-  { nome: "📍 Limeira", lat: -22.56, lon: -47.40, temp: "--°C", icone: "" },
-  { nome: "📍 Holambra", lat: -22.63, lon: -47.05, temp: "--°C", icone: "" },
-  { nome: "📍 Paulínia", lat: -22.76, lon: -47.15, temp: "--°C", icone: "" },
-  { nome: "📍 Leme", lat: -22.18, lon: -47.38, temp: "--°C", icone: "" },
-  { nome: "📍 S. A. de Posse", lat: -22.60, lon: -46.91, temp: "--°C", icone: "" },
-  { nome: "📍 Sta C. da Conceição", lat: -22.13, lon: -47.46, temp: "--°C", icone: "" },
-  { nome: "📍 Mogi Mirim", lat: -22.43, lon: -46.95, temp: "--°C", icone: "" },
-  { nome: "📍 Mogi Guaçu", lat: -22.37, lon: -46.94, temp: "--°C", icone: "" }
+  { nome: "Artur Nogueira SP", lat: -22.57, lon: -47.17, temp: "--°C", icone: "" },
+  { nome: "Cosmópolis SP", lat: -22.64, lon: -47.19, temp: "--°C", icone: "" },
+  { nome: "Eng. Coelho SP", lat: -22.48, lon: -47.20, temp: "--°C", icone: "" },
+  { nome: "Conchal SP", lat: -22.33, lon: -47.17, temp: "--°C", icone: "" },
+  { nome: "Limeira SP", lat: -22.56, lon: -47.40, temp: "--°C", icone: "" },
+  { nome: "Holambra SP", lat: -22.63, lon: -47.05, temp: "--°C", icone: "" },
+  { nome: "Paulínia SP", lat: -22.76, lon: -47.15, temp: "--°C", icone: "" },
+  { nome: "Leme SP", lat: -22.18, lon: -47.38, temp: "--°C", icone: "" },
+  { nome: "S. A. de Posse SP", lat: -22.60, lon: -46.91, temp: "--°C", icone: "" },
+  { nome: "Sta C. da Conceição SP", lat: -22.13, lon: -47.46, temp: "--°C", icone: "" },
+  { nome: "Mogi Mirim SP", lat: -22.43, lon: -46.95, temp: "--°C", icone: "" },
+  { nome: "Mogi Guaçu SP", lat: -22.37, lon: -46.94, temp: "--°C", icone: "" }
 ];
 
 let paginaClimaAtual = 0;
-const cidadesPorSlide = 3;
+const cidadesPorSlide = 2; // AJUSTADO: Apenas 2 cidades por exibição
 
 function processarIconeClima(code) {
   let imgUrl = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; 
@@ -374,11 +374,9 @@ setInterval(atualizarDadosDeTodasCidades, 900000);
 setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
-/* MOTOR DE NOTÍCIAS COM FALLBACK CONTRA TRAVAMENTOS */
+/* MOTOR DE NOTÍCIAS COM MULTI-FALLBACK */
 function atualizarNoticias() {
   const rssTarget = "https://g1.globo.com/rss/g1/sp/campinas-regiao/";
-  
-  // Tenta a primeira URL de processamento
   fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssTarget)}`)
     .then(r => r.json())
     .then(dados => {
@@ -394,7 +392,6 @@ function atualizarNoticias() {
 }
 
 function tentarProvedorAlternativo(target) {
-  // Segunda opção de API caso a primeira dê erro na TV
   fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(target)}`)
     .then(r => r.json())
     .then(dados => {
@@ -423,7 +420,6 @@ function mapearNoticias(lista) {
 }
 
 function inserirNoticiasManuais() {
-  // Caso a TV esteja sem internet externa total no momento do carregamento
   if(cacheNoticias.length === 0) {
     cacheNoticias = [
       { titulo: "Acompanhe as principais informações e atualizações da nossa região nesta tela.", fonte: "Plantão do Interior" },
@@ -433,7 +429,7 @@ function inserirNoticiasManuais() {
 }
 
 atualizarNoticias();
-setInterval(atualizarNoticias, 300000); // Recarrega o feed a cada 5 minutos
+setInterval(atualicias, 300000);
 
 function parseDate(t, ajusteHoras = 0) {
   if (!t) return 0;
@@ -451,7 +447,6 @@ function renderizarSlide() {
   if (!box) return;
   box.innerHTML = "";
 
-  // Tela de Notícias (Exibida na rotação após as páginas dos canais)
   if (paginaAtual === totalPaginasCanais) {
     if (cacheNoticias.length === 0) {
       box.innerHTML = `<div class="news-full-card"><div class="news-title">Sincronizando Destaques Regionais...</div></div>`;
@@ -472,7 +467,6 @@ function renderizarSlide() {
     return;
   }
 
-  // Tela de Canais (Páginas 0 e 1)
   const now = Date.now();
   const canaisDaPagina = canais.slice(paginaAtual * itensPorPagina, (paginaAtual * itensPorPagina) + itensPorPagina);
   let html = "";
@@ -500,7 +494,6 @@ function atualizar(){
 atualizar();
 setInterval(atualizar, 60000); 
 
-// Transição do painel a cada 15 segundos
 setInterval(() => {
   paginaAtual = (paginaAtual + 1) % (totalPaginasCanais + 1); 
   renderizarSlide();
