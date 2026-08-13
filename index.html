@@ -309,16 +309,13 @@ const EPG_URLS = [
   { idFonte: 2, url: "https://raw.githubusercontent.com/sp2telecom-spec/guia-assinante2/master/epg2.xml", ajusteHoras: 0 }
 ];
 
-const canais = [
-  // ABERTA / PRINCIPAIS
+const canaisNaoOrdenados = [
   {nome:"BAND", id:["band", "band.br", "Band.br", "BandSP.br", "Sao.Paulo/SP..Band.br", "São.Paulo/SP..Band.br", "523315"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2b/Rede_Bandeirantes_logo_2018.svg"},
   {nome:"CNN BRASIL", id:["São.Paulo/SP..CNN.Brasil.HD.br", "São.Paulo/SP..CNN.Brasil.br", "CNNBrasil.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/8/8b/CNN_Brasil_%28red_background%29.svg"},
   {nome:"EPTV / GLOBO", id:["eptv", "globo", "globo.br", "EPTV.br", "EPTVCampinas.br", "Globo.br", "Sao.Paulo/SP..Globo.br", "São.Paulo/SP..Globo.br"], logo:"https://upload.wikimedia.org/wikipedia/pt/6/67/EPTV.png"},
   {nome:"REDE TV", id:["redetv", "rede_tv", "RedeTV.br", "Sao.Paulo/SP..Rede.TV.br", "São.Paulo/SP..Rede.TV.br", "523301"], logo:"https://upload.wikimedia.org/wikipedia/commons/1/11/RedeTV%21_2019_logo.png"},
   {nome:"RECORD TV", id:["Record.TV.br", "São.Paulo/SP..Record.br", "São.Paulo/SP..Record.HD.br", "record", "record.br", "Record.br", "RecordSP.br", "Sao.Paulo/SP..Record.br"], logo:"https://upload.wikimedia.org/wikipedia/pt/0/0e/Logotipo_da_Record_%28rede_de_televis%C3%A3o%29.png"},
   {nome:"SBT", id:["sbt", "sbt.br", "SBT.br", "SBTSP.br", "Sao.Paulo/SP..SBT.br", "São.Paulo/SP..SBT.br"], logo:"https://upload.wikimedia.org/wikipedia/pt/4/41/Logotipo_do_SBT.svg"},
-
-  // HBO
   {nome:"HBO", id:["hbo", "HBO.br", "hbo.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg"},
   {nome:"HBO 2", id:["hbo2", "HBO2.br", "hbo2.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/22/HBO2_Logo.svg"},
   {nome:"HBO+", id:["hbo_plus", "HBOPlus.br", "hboplus.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2f/HBO_Plus_logo.svg"},
@@ -327,8 +324,6 @@ const canais = [
   {nome:"HBO XTREME", id:["hbo_xtreme", "HBOXtreme.br", "hboxtreme.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/d/d5/HBO_Xtreme_logo.svg"},
   {nome:"HBO SIGNATURE", id:["hbo_signature", "HBOSignature.br", "hbosignature.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/c/c3/HBO_Signature_logo.svg"},
   {nome:"HBO MUNDI", id:["hbo_mundi", "HBOMundi.br", "hbomundi.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/7/77/HBO_Mundi_logo.svg"},
-
-  // DOCUMENTÁRIOS
   {nome:"DISCOVERY CHANNEL", id:["discovery", "discovery_channel", "DiscoveryChannel.br", "Discovery.br", "Sao.Paulo/SP..Discovery.Channel.br", "São.Paulo/SP..Discovery.Channel.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/f/f1/2019_Discovery_logo.svg"},
   {nome:"ANIMAL PLANET", id:["animal_planet", "AnimalPlanet.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/20/Animal_Planet_2018.svg"},
   {nome:"THEATER DISCOVERY", id:["theater_discovery", "DiscoveryTheater.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/7/75/Discovery_Theater_logo.png"},
@@ -338,8 +333,6 @@ const canais = [
   {nome:"HISTORY 2", id:["history_2", "H2.br", "History2.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/c/c5/H2_logo.svg"},
   {nome:"HISTORY", id:["history", "History.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/f/f5/History_Logo.svg"},
   {nome:"DISCOVERY WORLD", id:["discovery_world", "DiscoveryWorld.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/7/7b/Discovery_World_logo.svg"},
-
-  // ESPORTES
   {nome:"ESPN HD", id:["espn", "espn.br", "ESPN.br", "ESPN1.br", "418725"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg"},
   {nome:"ESPN 2", id:["espn2", "ESPN2.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg"},
   {nome:"ESPN 3", id:["espn3", "ESPN3.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg"},
@@ -354,8 +347,6 @@ const canais = [
   {nome:"WOOHOO", id:["woohoo", "Woohoo.br"], logo:""},
   {nome:"TV CARRO", id:["tv_carro", "TVCarro.br"], logo:""},
   {nome:"UNIQUE SPORTS 1", id:["unique_sports_1", "UniqueSports1.br"], logo:""},
-
-  // INFANTIL
   {nome:"CARTOON NETWORK", id:["cartoon_network", "cartoonnetwork", "CartoonNetwork.br", "Sao.Paulo/SP..Cartoon.Network.br", "São.Paulo/SP..Cartoon.Network.br", "548619"], logo:"https://upload.wikimedia.org/wikipedia/commons/8/80/Cartoon_Network_2010_logo.svg"},
   {nome:"DISCOVERY KIDS", id:["discovery_kids", "discoverykids", "DiscoveryKids.br", "Sao.Paulo/SP..Discovery.Kids.br", "São.Paulo/SP..Discovery.Kids.br", "426202"], logo:"https://upload.wikimedia.org/wikipedia/commons/7/7f/Discovery_Kids_2021_2D_sin_wordmark.svg"},
   {nome:"U KIDS", id:["ukids", "UKids.br"], logo:""},
@@ -367,8 +358,6 @@ const canais = [
   {nome:"YUPI", id:["yupi", "Yupi.br"], logo:""},
   {nome:"HALLO! ANIME", id:["hallo_anime", "HalloAnime.br"], logo:""},
   {nome:"KIDS MAIS", id:["kids_mais", "KidsMais.br"], logo:""},
-
-  // NOTÍCIAS
   {nome:"JOVEM PAN NEWS", id:["jovem_pan_news", "JPNews.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/8/87/Jovem_Pan_News_logo.svg"},
   {nome:"FOX NEWS", id:["fox_news", "FoxNews.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/6/67/Fox_News_Channel_logo.svg"},
   {nome:"EURONEWS", id:["euronews", "Euronews.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/2/23/Euronews_2016_logo.svg"},
@@ -383,8 +372,6 @@ const canais = [
   {nome:"TELESUR", id:["telesur", "TeleSur.br"], logo:""},
   {nome:"EXITOSA", id:["exitosa", "Exitosa.br"], logo:""},
   {nome:"BLOOMBERG", id:["bloomberg", "Bloomberg.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/5/5d/Bloomberg_Television_logo.svg"},
-
-  // FILMES E SÉRIES
   {nome:"WARNER CHANNEL", id:["Warner.Channel.br", "warner", "warner_channel", "WarnerChannel.br", "Warner.br", "São.Paulo/SP..Warner.Channel.br", "São.Paulo/SP..Warner.Channel.HD.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/b/b0/Warner_Channel_2026.svg"},
   {nome:"SPACE", id:["space", "Space.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/d/d3/Space_logo_2015.svg"},
   {nome:"SONY CHANNEL", id:["sony_channel", "SonyChannel.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/0/05/Sony_Channel_logo.svg"},
@@ -418,8 +405,6 @@ const canais = [
   {nome:"RETRO", id:["retro", "Retro.br"], logo:""},
   {nome:"INSPIRE", id:["inspire", "Inspire.br"], logo:""},
   {nome:"LMC", id:["lmc", "LMC.br"], logo:""},
-
-  // PÚBLICOS & EDUCATIVOS
   {nome:"TV CULTURA", id:["TV.Cultura.br", "tvcultura", "TVCultura.br", "Cultura.br", "São.Paulo/SP..Cultura.br", "São.Paulo/SP..Cultura.HD.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/8/82/Cultura_logo_2013.svg"},
   {nome:"TV ASSEMBLÉIA", id:["tv_assembleia", "TVAssembleia.br"], logo:""},
   {nome:"TV SENADO", id:["tv_senado", "TVSenado.br"], logo:""},
@@ -430,11 +415,7 @@ const canais = [
   {nome:"RESERVADO COMUNITÁRIO", id:["reservado_comunitario", "ReservadoComunitario.br"], logo:""},
   {nome:"SESCTV", id:["sesctv", "SescTV.br"], logo:""},
   {nome:"TV ESCOLA", id:["tv_escola", "TVEscola.br"], logo:""},
-
-  // ÉTNICOS
   {nome:"NHK WORLD-JAPAN", id:["nhk_world", "NHKWorld.br"], logo:""},
-
-  // OUTROS
   {nome:"REDE SÉCULO 21", id:["seculo_21", "RedeSeculo21.br"], logo:""},
   {nome:"COM BRASIL", id:["com_brasil", "COMBrasil.br"], logo:""},
   {nome:"RIT", id:["rit", "RIT.br"], logo:""},
@@ -456,8 +437,6 @@ const canais = [
   {nome:"AGROBRASIL", id:["agrobrasil", "AgroBrasil.br"], logo:""},
   {nome:"CAMPO CANAL", id:["campo_canal", "CampoCanal.br"], logo:""},
   {nome:"TERRAVIVA", id:["terraviva", "Terraviva.br"], logo:""},
-
-  // CULTURA E VARIEDADES
   {nome:"FASHIONTV", id:["fashiontv", "FashionTV.br"], logo:""},
   {nome:"BRAVO TV", id:["bravo_tv", "BravoTV.br"], logo:""},
   {nome:"TV PAMPA", id:["tv_pampa", "TVPampa.br"], logo:""},
@@ -508,6 +487,9 @@ const canais = [
   {nome:"H&H", id:["home_and_health", "HomeAndHealth.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/e/eb/Discovery_Home_%26_Health_logo.svg"},
   {nome:"TLC", id:["tlc", "TLC.br"], logo:"https://upload.wikimedia.org/wikipedia/commons/6/67/TLC_logo.svg"}
 ];
+
+// ORDENAÇÃO ALFABÉTICA
+const canais = canaisNaoOrdenados.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
 
 let cacheProgramas = []; 
 let cacheNoticias = [];
