@@ -354,6 +354,10 @@ let paginaAtual = 0;
 let indexNoticiaAtual = 0;
 const itensPorPagina = 6; 
 
+// VARIÁVEIS DE CONTROLE PARA A REGRA DE 10 PÁGINAS DE CANAIS
+let contadorPaginasCanais = 0;
+let exibindoNoticia = false;
+
 function get totalPaginasCanais() {
   return Math.ceil(canais.length / itensPorPagina);
 }
@@ -500,13 +504,16 @@ function parseDate(t, ajusteHoras = 0) {
   return utcMs - (sinal * offset) + (ajusteHoras * 3600000);
 }
 
+/* ==========================================
+   RENDERIZAÇÃO DOS SLIDES DO CARROSSEL
+   ========================================== */
 function renderizarSlide() {
   const box = document.getElementById("carousel");
   if (!box) return;
   box.innerHTML = "";
 
-  // SLIDE DE NOTÍCIAS (APÓS A ÚLTIMA PÁGINA DE CANAIS)
-  if (paginaAtual >= totalPaginasCanais) {
+  // SE FOR O MOMENTO DE MOSTRAR O CARD DE NOTÍCIAS
+  if (exibindoNoticia) {
     if (cacheNoticias.length === 0) {
       box.innerHTML = `<div class="news-full-card"><div class="news-title">Sincronizando Destaques Regionais...</div></div>`;
       return;
@@ -529,6 +536,7 @@ function renderizarSlide() {
     return;
   }
 
+  // EXIBIÇÃO DE PÁGINAS DE CANAIS
   const now = Date.now();
   const canaisDaPagina = canais.slice(paginaAtual * itensPorPagina, (paginaAtual * itensPorPagina) + itensPorPagina);
   let html = "";
@@ -556,8 +564,22 @@ function atualizar(){
 atualizar();
 setInterval(atualizar, 60000); 
 
+// TEMPORIZADOR DE TRANSIÇÃO (A CADA 15 SEGUNDOS)
 setInterval(() => {
-  paginaAtual = (paginaAtual + 1) % (totalPaginasCanais + 1); 
+  if (exibindoNoticia) {
+    // Sai da notícia e volta para a sequência de canais
+    exibindoNoticia = false;
+    contadorPaginasCanais = 0; // Reseta o contador para contar mais 10 páginas
+  } else {
+    paginaAtual = (paginaAtual + 1) % totalPaginasCanais; 
+    contadorPaginasCanais++;
+
+    // Quando completar 10 páginas de canais, exibe o slide de notícia
+    if (contadorPaginasCanais >= 10) {
+      exibindoNoticia = true;
+    }
+  }
+  
   renderizarSlide();
 }, 15000);
 </script>
