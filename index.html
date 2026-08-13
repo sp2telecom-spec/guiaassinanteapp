@@ -135,7 +135,7 @@ html, body {
   border: 1px solid rgba(255,255,255,0.15);
   display: flex;
   align-items: center; 
-  gap: 18px;               
+  gap: 18px;                
   box-sizing: border-box;
 }
 
@@ -236,13 +236,23 @@ html, body {
 }
 
 .news-title {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.3;
   color: #fff;
-  margin: 20px 0;
+  margin: 15px 0 10px 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-resumo {
+  font-size: 18px;
+  color: #cbd5e1;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -493,6 +503,7 @@ const canaisNaoOrdenados = [
   {nome:"REDE MAIS FAMÍLIA", id:["rede_mais_familia", "RedeMaisFamilia.br"], logo:"https://upload.wikimedia.org/wikipedia/pt/3/31/Logo-rede-mais-familia.png"},
   {nome:"BOAS NOVAS", id:["boas_novas", "BoasNovas.br"], logo:"https://upload.wikimedia.org/wikipedia/pt/3/39/Rede_Boas_Novas.png"}
 ];
+
 // ORDENAÇÃO ALFABÉTICA
 const canais = canaisNaoOrdenados.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
 
@@ -574,78 +585,83 @@ setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
 /* ==========================================
-   SISTEMA DE NOTÍCIAS AUTOMÁTICAS (PARSER XML DIRETO)
+   SISTEMA DE NOTÍCIAS COM DUPLA CAMADA DE BUSCA (FALLBACK)
    ========================================== */
-function limparTexto(texto) {
-  if (!texto) return "";
-  const doc = new DOMParser().parseFromString(texto, 'text/html');
-  return doc.body.textContent.trim();
+function limparHTML(html) {
+  if (!html) return "";
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  return (tempDiv.textContent || tempDiv.innerText || "").trim();
 }
 
-function atualizarNoticias() {
+async function buscarFeedRSS(fonte) {
+  // 1ª Tentativa: Api rss2json
+  try {
+    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(fonte.url)}`);
+    const data = await res.json();
+    if (data && data.status === 'ok' && data.items && data.items.length > 0) {
+      return data.items.slice(0, 5).map(item => ({
+        titulo: limparHTML(item.title),
+        resumo: limparHTML(item.description || item.content),
+        fonte: fonte.nome
+      }));
+    }
+  } catch (e) {}
+
+  // 2ª Tentativa: Proxy AllOrigins com Parse XML
+  try {
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(fonte.url)}`;
+    const res = await fetch(proxyUrl);
+    const data = await res.json();
+    if (data && data.contents) {
+      const xml = new DOMParser().parseFromString(data.contents, "text/xml");
+      const itens = Array.from(xml.querySelectorAll("item"));
+      const lista = [];
+      itens.slice(0, 5).forEach(item => {
+        const title = item.querySelector("title")?.textContent || "";
+        const desc = item.querySelector("description")?.textContent || "";
+        if (title) {
+          lista.push({
+            titulo: limparHTML(title),
+            resumo: limparHTML(desc),
+            fonte: fonte.nome
+          });
+        }
+      });
+      if (lista.length > 0) return lista;
+    }
+  } catch (e) {}
+
+  return [];
+}
+
+async function atualizarNoticias() {
   const fontes = [
     { nome: "G1 Campinas e Região", url: "https://g1.globo.com/rss/g1/sp/campinas-regiao/" },
     { nome: "G1 São Carlos e Região", url: "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/" },
-    { nome: "Portal ON • Artur Nogueira", url: "https://portalon.com.br/arturnogueira/feed/" },
-    { nome: "Portal ON • Holambra", url: "https://portalon.com.br/holambra/feed/" },
-    { nome: "Portal ON • Paulínia", url: "https://portalon.com.br/paulinia/feed/" }
+    { nome: "Portal ON • Artur Nogueira", url: "https://portalon.com.br/arturnogueira/feed/" }
   ];
 
-  let baldesNoticias = {};
-  fontes.forEach(f => baldesNoticias[f.nome] = []);
-
-  // Busca RSS via Proxy AllOrigins + Parsing Nativo XML
-  const promessas = fontes.map(f => {
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(f.url)}`;
-    return fetch(proxyUrl)
-      .then(r => r.text())
-      .then(xmlString => {
-        const xml = new DOMParser().parseFromString(xmlString, "text/xml");
-        const itens = Array.from(xml.querySelectorAll("item"));
-        
-        itens.slice(0, 5).forEach(item => {
-          const tituloRaw = item.querySelector("title")?.textContent;
-          if (tituloRaw) {
-            const tituloLimpo = limparTexto(tituloRaw);
-            if (tituloLimpo) {
-              baldesNoticias[f.nome].push({ titulo: tituloLimpo, fonte: f.nome });
-            }
-          }
-        });
-      })
-      .catch(() => null);
-  });
-
-  Promise.all(promessas).then(() => {
-    let intercaladas = [];
-    let houveNovas = true;
-    let indexItem = 0;
-
-    while (houveNovas) {
-      houveNovas = false;
-      fontes.forEach(f => {
-        if (baldesNoticias[f.nome] && baldesNoticias[f.nome][indexItem]) {
-          intercaladas.push(baldesNoticias[f.nome][indexItem]);
-          houveNovas = true;
-        }
-      });
-      indexItem++;
-      if (indexItem > 15) break; 
+  let listaCompletas = [];
+  for (const f of fontes) {
+    const resultado = await buscarFeedRSS(f);
+    if (resultado.length > 0) {
+      listaCompletas = listaCompletas.concat(resultado);
     }
+  }
 
-    if (intercaladas.length > 0) {
-      cacheNoticias = intercaladas;
-    } else {
-      inserirNoticiasManuais();
-    }
-  });
+  if (listaCompletas.length > 0) {
+    cacheNoticias = listaCompletas;
+  } else {
+    inserirNoticiasManuais();
+  }
 }
 
 function inserirNoticiasManuais() {
   if (cacheNoticias.length === 0) {
     cacheNoticias = [
-      { titulo: "Acompanhe as principais informações e atualizações das nossas cidades nesta tela.", fonte: "Plantão do Interior" },
-      { titulo: "Previsão do tempo regional atualizando automaticamente no painel superior.", fonte: "Clima Monitor" }
+      { titulo: "Acompanhe as principais informações e atualizações das nossas cidades nesta tela.", resumo: "Fique ligado nas atualizações em tempo real exibidas no painel informativo.", fonte: "Plantão do Interior" },
+      { titulo: "Previsão do tempo regional atualizando automaticamente no painel superior.", resumo: "Acompanhe a variação da temperatura para as cidades da região no widget lateral.", fonte: "Clima Monitor" }
     ];
   }
 }
@@ -669,8 +685,8 @@ function renderizarSlide() {
   if (!box) return;
   box.innerHTML = "";
 
-  // SLIDE DE NOTÍCIAS (EXIBIDO NO FINAL DO CARROSSEL)
-  if (paginaAtual === totalPaginasCanais) {
+  // SLIDE DE NOTÍCIAS (EXIBIDO NO FINAL DO CARROSSEL DE CANAIS)
+  if (paginaAtual >= totalPaginasCanais) {
     if (cacheNoticias.length === 0) {
       box.innerHTML = `<div class="news-full-card"><div class="news-title">Sincronizando Destaques Regionais...</div></div>`;
       return;
@@ -682,7 +698,10 @@ function renderizarSlide() {
           <span class="news-badge">Destaques da Região</span>
           <span class="news-source">${noticia.fonte}</span>
         </div>
-        <div class="news-title">${noticia.titulo}</div>
+        <div>
+          <div class="news-title">${noticia.titulo}</div>
+          <div class="news-resumo">${noticia.resumo || ''}</div>
+        </div>
         <div class="news-footer">Região de Cobertura Integrada • Notícias da Região</div>
       </div>
     `;
