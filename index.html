@@ -56,7 +56,7 @@ html, body {
   font-weight: 600;
   margin-top: 5px;
   text-transform: capitalize;
-  color: #ffffff; 
+  color: #ffffff; /* AJUSTADO: Data em cor branca */
   text-shadow: 0 2px 8px rgba(0,0,0,0.9);
 }
 
@@ -568,36 +568,39 @@ setInterval(atualizarDadosDeTodasCidades, 900000);
 setTimeout(rotacionarCidadesWidget, 2000);
 setInterval(rotacionarCidadesWidget, 10000);
 
+/* ==========================================
+   SISTEMA CORRIGIDO DE NOTÍCIAS AUTOMÁTICAS
+   ========================================== */
 function atualizarNoticias() {
   const fontes = [
-    { nome: "G1 Campinas e Região", url: "https://g1.globo.com/rss/g1/sp/campinas-regiao/", origem: "g1" },
-    { nome: "G1 São Carlos", url: "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/", origem: "g1" },
-    { nome: "Portal ON • Artur Nogueira", url: "https://portalon.com.br/arturnogueira/feed/", origem: "portal" },
-    { nome: "Portal ON • Engenheiro Coelho", url: "https://portalon.com.br/engenheirocoelho/feed/", origem: "portal" },
-    { nome: "Portal ON • S. A. de Posse", url: "https://portalon.com.br/santoantoniodeposse/feed/", origem: "portal" },
-    { nome: "Portal ON • Jaguariúna", url: "https://portalon.com.br/jaguariuna/feed/", origem: "portal" },
-    { nome: "Portal ON • Holambra", url: "https://portalon.com.br/holambra/feed/", origem: "portal" },
-    { nome: "Portal ON • Paulínia", url: "https://portalon.com.br/paulinia/feed/", origem: "portal" }
+    { nome: "G1 Campinas e Região", url: "https://g1.globo.com/rss/g1/sp/campinas-regiao/" },
+    { nome: "G1 São Carlos e Região", url: "https://g1.globo.com/rss/g1/sp/sao-carlos-regiao/" },
+    { nome: "Portal ON • Artur Nogueira", url: "https://portalon.com.br/arturnogueira/feed/" },
+    { nome: "Portal ON • Engenheiro Coelho", url: "https://portalon.com.br/engenheirocoelho/feed/" },
+    { nome: "Portal ON • S. A. de Posse", url: "https://portalon.com.br/santoantoniodeposse/feed/" },
+    { nome: "Portal ON • Jaguariúna", url: "https://portalon.com.br/jaguariuna/feed/" },
+    { nome: "Portal ON • Holambra", url: "https://portalon.com.br/holambra/feed/" },
+    { nome: "Portal ON • Paulínia", url: "https://portalon.com.br/paulinia/feed/" }
   ];
 
   let baldesNoticias = {};
   fontes.forEach(f => baldesNoticias[f.nome] = []);
 
+  // API em JSON direta e estável sem bloqueios CORS
   const promessas = fontes.map(f => {
-    return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(f.url)}`)
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(f.url)}`;
+    return fetch(apiUrl)
       .then(r => r.json())
       .then(dados => {
-        if (dados && dados.contents) {
-          const xml = new DOMParser().parseFromString(dados.contents, "text/xml");
-          const itens = xml.querySelectorAll("item");
-          if(itens && itens.length > 0) {
-            Array.from(itens).slice(0, 10).forEach(item => {
-              const t = item.querySelector("title")?.textContent || "";
-              if (t) baldesNoticias[f.nome].push({ titulo: t, fonte: f.nome });
-            });
-          }
+        if (dados && dados.status === 'ok' && dados.items && dados.items.length > 0) {
+          dados.items.slice(0, 5).forEach(item => {
+            if (item.title) {
+              baldesNoticias[f.nome].push({ titulo: item.title, fonte: f.nome });
+            }
+          });
         }
-      }).catch(() => null);
+      })
+      .catch(() => null);
   });
 
   Promise.all(promessas).then(() => {
@@ -614,7 +617,7 @@ function atualizarNoticias() {
         }
       });
       indexItem++;
-      if(indexItem > 25) break; 
+      if (indexItem > 15) break; 
     }
 
     if (intercaladas.length > 0) {
@@ -629,13 +632,13 @@ function inserirNoticiasManuais() {
   if(cacheNoticias.length === 0) {
     cacheNoticias = [
       { titulo: "Acompanhe as principais informações e atualizações das nossas cidades nesta tela.", fonte: "Plantão do Interior" },
-      { titulo: "Previsão do tempo regional atualizando automaticamente a cada 15 minutos no painel superior.", fonte: "Clima Monitor" }
+      { titulo: "Previsão do tempo regional atualizando automaticamente no painel superior.", fonte: "Clima Monitor" }
     ];
   }
 }
 
 atualizarNoticias();
-setInterval(atualizarNoticias, 300000);
+setInterval(atualizarNoticias, 300000); // Atualiza notícias a cada 5 minutos
 
 function parseDate(t, ajusteHoras = 0) {
   if (!t) return 0;
@@ -653,6 +656,7 @@ function renderizarSlide() {
   if (!box) return;
   box.innerHTML = "";
 
+  // SLIDE DE NOTÍCIAS (EXIBIDO NO FINAL DO CARROSSEL)
   if (paginaAtual === totalPaginasCanais) {
     if (cacheNoticias.length === 0) {
       box.innerHTML = `<div class="news-full-card"><div class="news-title">Sincronizando Destaques Regionais...</div></div>`;
@@ -666,7 +670,7 @@ function renderizarSlide() {
           <span class="news-source">${noticia.fonte}</span>
         </div>
         <div class="news-title">${noticia.titulo}</div>
-        <div class="news-footer">Região de Cobertura Integrada • Intercalado por Cidade</div>
+        <div class="news-footer">Região de Cobertura Integrada • Notícias da Região</div>
       </div>
     `;
     indexNoticiaAtual = (indexNoticiaAtual + 1) % cacheNoticias.length;
