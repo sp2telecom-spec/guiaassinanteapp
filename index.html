@@ -511,6 +511,9 @@ let cacheProgramas = [];
 let cacheNoticias = [];
 let paginaAtual = 0; 
 let indexNoticiaAtual = 0;
+let contadorCanaisExibidos = 0; // Nova variável para contar slides de canais
+let modoNoticia = false; // Nova variável de estado para controlar a exibição
+
 const itensPorPagina = 6; 
 const totalPaginasCanais = Math.ceil(canais.length / itensPorPagina);
 
@@ -685,8 +688,8 @@ function renderizarSlide() {
   if (!box) return;
   box.innerHTML = "";
 
-  // SLIDE DE NOTÍCIAS (EXIBIDO NO FINAL DO CARROSSEL DE CANAIS)
-  if (paginaAtual >= totalPaginasCanais) {
+  // SLIDE DE NOTÍCIAS (EXIBIDO A CADA 6 PÁGINAS DE CANAIS)
+  if (modoNoticia) {
     if (cacheNoticias.length === 0) {
       box.innerHTML = `<div class="news-full-card"><div class="news-title">Sincronizando Destaques Regionais...</div></div>`;
       return;
@@ -737,7 +740,24 @@ atualizar();
 setInterval(atualizar, 60000); 
 
 setInterval(() => {
-  paginaAtual = (paginaAtual + 1) % (totalPaginasCanais + 1); 
+  if (modoNoticia) {
+    // Se estava mostrando a notícia, volta para a rotação de canais
+    modoNoticia = false;
+    paginaAtual = (paginaAtual + 1) % totalPaginasCanais;
+  } else {
+    // Incrementa contador de páginas de canais
+    contadorCanaisExibidos++;
+    
+    if (contadorCanaisExibidos >= 6) {
+      // Entra no modo notícia após 6 slides de canais
+      modoNoticia = true;
+      contadorCanaisExibidos = 0; // Reseta o contador para o próximo ciclo
+    } else {
+      // Apenas avança para a próxima página de canais
+      paginaAtual = (paginaAtual + 1) % totalPaginasCanais;
+    }
+  }
+  
   renderizarSlide();
 }, 15000);
 </script>
