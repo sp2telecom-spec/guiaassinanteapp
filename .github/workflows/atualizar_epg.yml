@@ -36,6 +36,10 @@ jobs:
         curl -L "https://epgshare01.online/epgshare01/epg_ripper_BR2.xml.gz" -o epg3.xml.gz
         gunzip -f epg3.xml.gz
 
+         # Fonte 4: epgshare01 (BR1)
+        curl -L "http://200.98.168.231:8585/sat/IPTV/Guide_Correct.xml" -o epg4.xml.gz
+        gunzip -f epg1.xml.gz
+
     - name: Commit e Push das alterações
       run: |
         git config --local user.email "action@github.com"
