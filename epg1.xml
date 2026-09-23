@@ -1,16 +1,120 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <tv generator-info-name="none" generator-info-url="none">
-  <channel id="São.Paulo/SP..ESPN.4.HD.br">
+  <channel id="São.Paulo/SP..Telecine.Fun.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  ESPN 4 HD</display-name>
+    <display-name lang="pt">São Paulo/SP  Telecine Fun HD ³</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Telecine.Pipoca.HD.³.br">
+  <channel id="São.Paulo/SP..Canal.Legislativo.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Pipoca HD ³</display-name>
+    <display-name lang="pt">São Paulo/SP  Canal Legislativo</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Animal.Planet.br">
+  <channel id="São.Paulo/SP..Cartoonito.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Animal Planet</display-name>
+    <display-name lang="pt">São Paulo/SP  Cartoonito HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..FX.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  FX</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Pipoca.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Pipoca</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.2.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal 2</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..PREMIERE.HD.5.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  PREMIERE HD 5 ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV.Justiça.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV Justiça</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..SporTV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  SporTV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..CGTN.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  CGTN</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.do.Boi.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal do Boi</display-name>
+  </channel>
+  <channel id="São.Paulo/SP...TV.Aparecida.(espelho).br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP   TV Aparecida (espelho)</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Action.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Action HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Science.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Science HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Band.News.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Band News</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..E!..br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  E! </display-name>
+  </channel>
+  <channel id="São.Paulo/SP..BIS.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  BIS</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Home.and.Health.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Home and Health</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..RIT.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  RIT TV</display-name>
+  </channel>
+  <channel id="Campinas/SP..Film&amp;Arts.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">Campinas/SP  Film&amp;Arts</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..SporTV.2.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  SporTV 2</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..A.and.E.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  A and E</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Comedy.Central.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Comedy Central</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Food.Network.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Food Network</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.Comunitário.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal Comunitário</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TLC.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TLC</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Futura.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Futura HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Home.and.Health.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">Discovery Home and Health HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..SBT.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  SBT HD</display-name>
   </channel>
   <channel id="São.Paulo/SP..ESPN.3.HD.br">
     <icon src="https://www.clarotvmais.com.br/img/channels/espn_3.png" />
@@ -18,745 +122,9 @@
     <url>http://www.clarotvmais.com.br</url>
     <display-name lang="pt">São Paulo/SP  ESPN 3 HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..GNT.HD.³.br">
+  <channel id="São.Paulo/SP..Boa.Vontade.TV.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  GNT HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..SporTV.2.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SporTV 2</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.Signature.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO Signature HD ³</display-name>
-  </channel>
-  <channel id="Belo.Horizonte/MG...TV.Aparecida.(espelho).br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Belo Horizonte/MG   TV Aparecida (espelho)</display-name>
-  </channel>
-  <channel id="Campinas/SP..Canal.do.Boi.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Campinas/SP  Canal do Boi</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.Xtreme.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO Xtreme HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Canal.de.Vendas.NET.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal de Vendas NET</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Modo.viagem.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Modo viagem</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Theater.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Theater HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Nick.Jr..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Nick Jr.</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cinemax.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cinemax</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Space.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Space</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Space.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Space HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Megapix.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Megapix</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Studio.Universal.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Studio Universal</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Band.News.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Band News</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TCM.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TCM</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV.Rá.Tim.Bum.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Rá Tim Bum</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cultura.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cultura HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Off.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Off HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Sexy.Hot.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Sexy Hot</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Globo.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Globo</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..E!.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  E! HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..MTV.Live.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  MTV Live HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Rede.21.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Rede 21</display-name>
-  </channel>
-  <channel id="Belo.Horizonte/MG..Premiere.6.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Belo Horizonte/MG  Premiere 6</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..RIT.TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  RIT TV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Food.Network.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Food Network</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Mosaico.Multijogos.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Mosaico Multijogos</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Premiere.4.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere 4</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Kids.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Kids HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Touch.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Touch HD ³</display-name>
-  </channel>
-  <channel id="Sony.Movies.Brazil.br">
-    <icon src="http://dtil.tmsimg.com/assets/s124605_ll_h15_aa.png?w=360&amp;h=270" />
-    <icon src="http://dtil.tmsimg.com/assets/s124605_ll_h15_aa.png?w=360&amp;h=270" />
-    <url>http://www.tmsapi.com</url>
-    <display-name lang="en">Sony Movies Brazil</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Fun.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Fun</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..CONMEBOL.TV.4.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  CONMEBOL TV 4 HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TLC.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TLC HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV5.Monde.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV5 Monde</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Channel.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Channel</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TVE.International.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TVE International</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..CNN.Brasil.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  CNN Brasil HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Agro.Mais.HD..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Agro Mais HD </display-name>
-  </channel>
-  <channel id="São.Paulo/SP..E!..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  E! </display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Fun.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Fun HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Paramount.Network.HD..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Paramount Network HD </display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Action.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Action HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..AXN.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  AXN HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Premiere.7.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere 7</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..FOOD.NETWORK.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  FOOD NETWORK HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Futura.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Futura</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..A.and.E.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  A and E HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cartoon.Network.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cartoon Network HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TNT.SÉRIES.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TNT SÉRIES HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..History.Hd.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  History Hd</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..The.History.Channel.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  The History Channel</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Canal.do.Boi.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal do Boi</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Music.Box.Brazil.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Music Box Brazil</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Paramount.Network.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Paramount Network</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..SIC.International.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SIC International</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Rede.TV.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Rede TV HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..MTV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  MTV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Rede.Vida.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Rede Vida HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..National.Geographic.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  National Geographic HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..PREMIERE.HD.5.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  PREMIERE HD 5 ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..SBT.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SBT</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..GloboNews.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  GloboNews</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..NHK.World.Premium.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  NHK World Premium</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Premium.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Premium HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Premiere.3.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere 3</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..National.Geographic.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  National Geographic</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Home.and.Health.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Home and Health</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Fashion.TV.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Fashion TV HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP...Universal.TV.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP   Universal TV HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Agro.Mais.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Agro Mais</display-name>
-  </channel>
-  <channel id="ESPN.6.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/espn_6.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/espn_6.png" />
-    <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">ESPN 6</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.Xtreme.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO Xtreme</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..CGTN.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  CGTN</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Sony.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Sony</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Lifetime.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Lifetime</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Sextreme.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Sextreme</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Prime.Box.Brazil.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Prime Box Brazil HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..LIKE.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  LIKE HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Futura.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Futura HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Bloomberg.TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Bloomberg TV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Gloob.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Gloob HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Universal.TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Universal TV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..FISH.TV.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  FISH TV HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Star.Channel.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Star Channel</display-name>
-  </channel>
-  <channel id="São.Paulo/SP...TV.Brasil.2.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP   TV Brasil 2</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.Signature.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO Signature</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..AMC.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  AMC</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Rede.Gospel.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Rede Gospel</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..DogTV.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  DogTV HD</display-name>
-  </channel>
-  <channel id="Belo.Horizonte/MG..TV.Pai.Eterno.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Belo Horizonte/MG  TV Pai Eterno</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Cult.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Cult</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..FISH.TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  FISH TV</display-name>
-  </channel>
-  <channel id="Jovem.Pan.News.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/jovem_pan_news.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/jovem_pan_news.png" />
-    <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">Jovem Pan News</display-name>
-  </channel>
-  <channel id="HBO+.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_mais.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_mais.png" />
-    <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">HBO+</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Film&amp;Arts.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Film&amp;Arts HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..BIS.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  BIS</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TNT.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TNT HD ³</display-name>
-  </channel>
-  <channel id="HBO.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_go.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_go.png" />
-    <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">HBO</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Comedy.Central.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Comedy Central HD</display-name>
-  </channel>
-  <channel id="Belo.Horizonte/MG..Premiere.7.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Belo Horizonte/MG  Premiere 7</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..DW-TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  DW-TV</display-name>
-  </channel>
-  <channel id="Campinas/SP..Film&amp;Arts.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Campinas/SP  Film&amp;Arts</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV.Escola.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Escola</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..CNN.International.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  CNN International</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Canal.2.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal 2</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Baby.Tv.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Baby Tv</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cultura.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cultura</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Music.Box.Brazil.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Music Box Brazil HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..STAR.CHANNEL.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  STAR CHANNEL HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Disney.Channel.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Disney Channel HD ³</display-name>
-  </channel>
-  <channel id="ESPN.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/espn.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/espn.png" />
-    <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">ESPN</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Canal.Brasil.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal Brasil</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Science.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Science</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.world.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery world HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Woohoo.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Woohoo HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..PREMIERE.HD.4.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  PREMIERE HD 4 ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.POP.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO POP HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..GNT.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  GNT</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Premiere.6.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere 6</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cinecanal.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cinecanal</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Sony.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Sony HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..SporTV.2.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SporTV 2 HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Disney.Channel.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Disney Channel</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Gazeta.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Gazeta HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..SporTV.3.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SporTV 3 HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Syfy.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Syfy</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Curta!.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Curta! HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..ID.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  ID</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Modo.viagem.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Modo viagem HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV.Rá.Tim.Bum.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Rá Tim Bum HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV.Senado.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Senado</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Band.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Band HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.Family.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO Family HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Combate.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Combate</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.MUNDI.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO MUNDI HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Travel.Box.Brasil.HD..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Travel Box Brasil HD </display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Record.News..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Record News </display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Tnt.novelas.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Tnt novelas HD</display-name>
-  </channel>
-  <channel id="Belo.Horizonte/MG..Hbo.Mundi.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Belo Horizonte/MG  Hbo Mundi</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Espn.4.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Espn 4</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Band.Sports.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Band Sports HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Off.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Off</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Multishow.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Multishow HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..FX.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  FX HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Turbo.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Turbo HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Premiere.Clubes.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere Clubes</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Turbo.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Turbo</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Polishop.TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Polishop TV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cartoon.Network.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cartoon Network</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV.Brasil.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Brasil HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Tnt.novelas.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Tnt novelas</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV.Korea.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Korea</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Record.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Record</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..PREMIERE.HD.3.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  PREMIERE HD 3 ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Pipoca.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Pipoca</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.2.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO 2</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Animal.Planet.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Animal Planet HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP...TV.Aparecida.(espelho).br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP   TV Aparecida (espelho)</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..ZooMoo.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  ZooMoo HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HGTV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HGTV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TLC.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TLC</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Playboy.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Playboy HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Rede.TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Rede TV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Viva.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Viva</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Kids.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Kids</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Warner.Channel.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Warner Channel</display-name>
-  </channel>
-  <channel id="Belo.Horizonte/MG..Shoptime.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Belo Horizonte/MG  Shoptime</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Terra.Viva.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Terra Viva</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TV.Justiça.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Justiça</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Combate.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Combate HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..cartoonito.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  cartoonito</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Cult.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Cult HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Gloobinho.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Gloobinho HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cinemax.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cinemax HD ³</display-name>
-  </channel>
-  <channel id="Belo.Horizonte/MG..Polishop.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Belo Horizonte/MG  Polishop</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Band.Sports.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Band Sports</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Cartoonito.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Cartoonito HD</display-name>
+    <display-name lang="pt">São Paulo/SP  Boa Vontade TV</display-name>
   </channel>
   <channel id="São.Paulo/SP..History.2.HD.br">
     <icon src="https://www.clarotvmais.com.br/img/channels/history_2.png" />
@@ -764,135 +132,213 @@
     <url>http://www.clarotvmais.com.br</url>
     <display-name lang="pt">São Paulo/SP  History 2 HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Arte.1.HD.br">
+  <channel id="São.Paulo/SP..Nick.Jr..br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Arte 1 HD</display-name>
+    <display-name lang="pt">São Paulo/SP  Nick Jr.</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Globo.HD.br">
+  <channel id="São.Paulo/SP..Discovery.Channel.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Globo HD</display-name>
+    <display-name lang="pt">São Paulo/SP  Discovery Channel</display-name>
   </channel>
-  <channel id="São.Paulo/SP..TV.Brasil.br">
+  <channel id="São.Paulo/SP..cartoonito.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Brasil</display-name>
+    <display-name lang="pt">São Paulo/SP  cartoonito</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Canal.Rural.br">
+  <channel id="São.Paulo/SP..Band.Sports.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal Rural</display-name>
+    <display-name lang="pt">São Paulo/SP  Band Sports HD ³</display-name>
   </channel>
-  <channel id="São.Paulo/SP..AXN.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  AXN</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..FX.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  FX</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Playboy.TV..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Playboy TV </display-name>
-  </channel>
-  <channel id="São.Paulo/SP..RAI.International.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  RAI International</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Home.and.Health.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">Discovery Home and Health HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Syfy.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Syfy HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Canal.Legislativo.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal Legislativo</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Megapix.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Megapix HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Canal.Universitário.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal Universitário</display-name>
-  </channel>
-  <channel id="Adult.Swim.HD.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/adult_swim.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/adult_swim.png" />
+  <channel id="HBO.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_go.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_go.png" />
     <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">Adult Swim HD</display-name>
+    <display-name lang="pt">HBO</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Warner.Channel.HD.br">
+  <channel id="São.Paulo/SP..CNN.Brasil.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Warner Channel HD</display-name>
+    <display-name lang="pt">São Paulo/SP  CNN Brasil</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HGTV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HGTV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Music.Box.Brazil.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Music Box Brazil</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.Signature.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO Signature</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Comedy.Central.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Comedy Central HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Warner.Channel.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Warner Channel</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Fun.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Fun</display-name>
   </channel>
   <channel id="São.Paulo/SP..TV.Climatempo.br">
     <url>http://www.clarotv.com.br</url>
     <display-name lang="pt">São Paulo/SP  TV Climatempo</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Prime.Box.Brazil.br">
+  <channel id="São.Paulo/SP..RAI.International.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Prime Box Brazil</display-name>
+    <display-name lang="pt">São Paulo/SP  RAI International</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Nickelodeon.br">
+  <channel id="São.Paulo/SP..Agro.Mais.HD..br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Nickelodeon</display-name>
+    <display-name lang="pt">São Paulo/SP  Agro Mais HD </display-name>
   </channel>
-  <channel id="São.Paulo/SP..Gloob.br">
+  <channel id="São.Paulo/SP..Record.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Gloob</display-name>
+    <display-name lang="pt">São Paulo/SP  Record</display-name>
   </channel>
-  <channel id="São.Paulo/SP..MTV.HD.³.br">
+  <channel id="São.Paulo/SP..CNN.International.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  MTV HD ³</display-name>
+    <display-name lang="pt">São Paulo/SP  CNN International</display-name>
   </channel>
-  <channel id="São.Paulo/SP..HBO.Family.br">
+  <channel id="São.Paulo/SP..Telecine.Touch.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO Family</display-name>
+    <display-name lang="pt">São Paulo/SP  Telecine Touch</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Shoptime.TV.br">
+  <channel id="São.Paulo/SP..Rede.Vida.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Shoptime TV</display-name>
+    <display-name lang="pt">São Paulo/SP  Rede Vida HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Canal.Comunitário.br">
+  <channel id="São.Paulo/SP..Travel.Box.Brasil.HD..br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal Comunitário</display-name>
+    <display-name lang="pt">São Paulo/SP  Travel Box Brasil HD </display-name>
   </channel>
-  <channel id="São.Paulo/SP..Boa.Vontade.TV.br">
+  <channel id="São.Paulo/SP..SporTV.3..br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Boa Vontade TV</display-name>
+    <display-name lang="pt">São Paulo/SP  SporTV 3 </display-name>
   </channel>
-  <channel id="São.Paulo/SP..Telecine.Action.br">
+  <channel id="São.Paulo/SP..Telecine.Premium.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Action</display-name>
+    <display-name lang="pt">São Paulo/SP  Telecine Premium HD ³</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Curta!.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Curta!</display-name>
+  <channel id="HBO+.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_mais.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/hbo_mais.png" />
+    <url>http://www.clarotvmais.com.br</url>
+    <display-name lang="pt">HBO+</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Mega.TV.HD.br">
+  <channel id="São.Paulo/SP..SBT.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Mega TV HD</display-name>
+    <display-name lang="pt">São Paulo/SP  SBT</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.MUNDI.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO MUNDI HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Tnt.novelas.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Tnt novelas HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Studio.Universal.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Studio Universal HD</display-name>
   </channel>
   <channel id="São.Paulo/SP..TV.Câmara.br">
     <url>http://www.clarotv.com.br</url>
     <display-name lang="pt">São Paulo/SP  TV Câmara</display-name>
   </channel>
-  <channel id="São.Paulo/SP..SporTV.HD.³.br">
+  <channel id="São.Paulo/SP..TV.Brasil.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SporTV HD ³</display-name>
+    <display-name lang="pt">São Paulo/SP  TV Brasil HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Gazeta.br">
+  <channel id="São.Paulo/SP..TV.Rá.Tim.Bum.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Gazeta</display-name>
+    <display-name lang="pt">São Paulo/SP  TV Rá Tim Bum</display-name>
   </channel>
-  <channel id="São.Paulo/SP..TV.Pai.Eterno.br">
+  <channel id="Belo.Horizonte/MG..Hbo.Mundi.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TV Pai Eterno</display-name>
+    <display-name lang="pt">Belo Horizonte/MG  Hbo Mundi</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Gloobinho.br">
+  <channel id="São.Paulo/SP..TNT.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Gloobinho</display-name>
+    <display-name lang="pt">São Paulo/SP  TNT HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Woohoo.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Woohoo HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Modo.viagem.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Modo viagem HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..DogTV.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  DogTV HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV.Senado.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV Senado</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Disney.Channel.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Disney Channel HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Mosaico.Multijogos.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Mosaico Multijogos</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Playboy.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Playboy HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Curta!.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Curta!</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.2.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere 2</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..E!.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  E! HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Warner.Channel.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Warner Channel HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Music.Box.Brazil.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Music Box Brazil HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..MTV.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  MTV HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.Clubes.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere Clubes</display-name>
+  </channel>
+  <channel id="Belo.Horizonte/MG..Premiere.7.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">Belo Horizonte/MG  Premiere 7</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Studio.Universal.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Studio Universal</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Cultura.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Cultura HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..AMC.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  AMC</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Prime.Box.Brazil.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Prime Box Brazil</display-name>
   </channel>
   <channel id="ESPN.2.br">
     <icon src="https://www.clarotvmais.com.br/img/channels/espn_2.png" />
@@ -900,13 +346,363 @@
     <url>http://www.clarotvmais.com.br</url>
     <display-name lang="pt">ESPN 2</display-name>
   </channel>
+  <channel id="São.Paulo/SP..Premiere.Clubes.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere Clubes HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.de.Vendas.NET.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal de Vendas NET</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HGTV.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HGTV HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Paramount.Network.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Paramount Network</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.5.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere 5</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Tnt.novelas.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Tnt novelas</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..PREMIERE.HD.4.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  PREMIERE HD 4 ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..SporTV.3.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  SporTV 3 HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Cartoon.Network.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Cartoon Network</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..The.History.Channel.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  The History Channel</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..LIKE.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  LIKE HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..MTV.Live.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  MTV Live HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Gazeta.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Gazeta HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..FOOD.NETWORK.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  FOOD NETWORK HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Rede.TV.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Rede TV HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Lifetime.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Lifetime</display-name>
+  </channel>
+  <channel id="Belo.Horizonte/MG...TV.Aparecida.(espelho).br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">Belo Horizonte/MG   TV Aparecida (espelho)</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Arte.1.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Arte 1</display-name>
+  </channel>
+  <channel id="ESPN.6.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/espn_6.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/espn_6.png" />
+    <url>http://www.clarotvmais.com.br</url>
+    <display-name lang="pt">ESPN 6</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..ZooMoo.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  ZooMoo HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Nickelodeon.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Nickelodeon</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.6.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere 6</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..A.and.E.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  A and E HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Globo.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Globo HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..CNN.Brasil.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  CNN Brasil HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..GNT.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  GNT</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Baby.Tv.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Baby Tv</display-name>
+  </channel>
+  <channel id="Adult.Swim.HD.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/adult_swim.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/adult_swim.png" />
+    <url>http://www.clarotvmais.com.br</url>
+    <display-name lang="pt">Adult Swim HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Prime.Box.Brazil.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Prime Box Brazil HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Mega.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Mega TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..FX.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  FX HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.Family.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO Family</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Cinemax.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Cinemax</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Universal.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Universal TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Hbo.Pop.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Hbo Pop</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Nickelodeon.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Nickelodeon HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Off.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Off HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Turbo.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Turbo HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..AMC.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  AMC HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..National.Geographic.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  National Geographic</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..CONMEBOL.TV.4.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  CONMEBOL TV 4 HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Lifetime.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Lifetime HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..AXN.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  AXN</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Disney.Channel.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Disney Channel</display-name>
+  </channel>
+  <channel id="Sony.Movies.Brazil.br">
+    <icon src="http://dtil.tmsimg.com/assets/s124605_ll_h15_aa.png?w=360&amp;h=270" />
+    <icon src="http://dtil.tmsimg.com/assets/s124605_ll_h15_aa.png?w=360&amp;h=270" />
+    <url>http://www.tmsapi.com</url>
+    <display-name lang="en">Sony Movies Brazil</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Bloomberg.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Bloomberg TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.4.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere 4</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Shoptime.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Shoptime TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.3.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere 3</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.POP.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO POP HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Combate.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Combate</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..NHK.World.Premium.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  NHK World Premium</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Kids.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Kids</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TNT.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TNT</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Animal.Planet.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Animal Planet</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.Xtreme.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO Xtreme</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Gloobinho.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Gloobinho</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Record.News..br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Record News </display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Multishow.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Multishow</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..National.Geographic.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  National Geographic HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Megapix.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Megapix HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Sexy.Hot.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Sexy Hot</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV.Brasil.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV Brasil</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Agro.Mais.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Agro Mais</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Rede.21.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Rede 21</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Venus.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Venus</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Gloob.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Gloob</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Cult.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Cult</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..SporTV.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  SporTV HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Kids.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Kids HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..ID.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  ID HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Animal.Planet.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Animal Planet HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.Signature.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO Signature HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Theater.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Theater HD ³</display-name>
+  </channel>
+  <channel id="Belo.Horizonte/MG..Polishop.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">Belo Horizonte/MG  Polishop</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TCM.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TCM</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Pipoca.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Pipoca HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Space.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Space</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..FISH.TV.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  FISH TV HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV.Escola.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV Escola</display-name>
+  </channel>
+  <channel id="Belo.Horizonte/MG..TV.Pai.Eterno.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">Belo Horizonte/MG  TV Pai Eterno</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV.Pai.Eterno.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV Pai Eterno</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Band.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Band</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.HD.2.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO HD 2 ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..SIC.International.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  SIC International</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..History.Hd.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  History Hd</display-name>
+  </channel>
   <channel id="São.Paulo/SP..Band.News.HD.br">
     <url>http://www.clarotv.com.br</url>
     <display-name lang="pt">São Paulo/SP  Band News HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Telecine.Touch.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Touch</display-name>
   </channel>
   <channel id="Sabor.&amp;.Arte.br">
     <icon src="https://www.clarotvmais.com.br/img/channels/sabor-e-arte.png" />
@@ -914,165 +710,89 @@
     <url>http://www.clarotvmais.com.br</url>
     <display-name lang="pt">Sabor &amp; Arte</display-name>
   </channel>
-  <channel id="São.Paulo/SP..AMC.HD.br">
+  <channel id="São.Paulo/SP..TVE.International.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  AMC HD</display-name>
+    <display-name lang="pt">São Paulo/SP  TVE International</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Studio.Universal.HD.br">
+  <channel id="São.Paulo/SP..Syfy.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Studio Universal HD</display-name>
+    <display-name lang="pt">São Paulo/SP  Syfy HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Woohoo.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Woohoo</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Hbo.Pop.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Hbo Pop</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Band.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Band</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..GloboNews.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  GloboNews HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Premiere.HD.2.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere HD 2</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Eurochannel.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Eurochannel HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Venus.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Venus</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Arte.1.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Arte 1</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Premiere.Clubes.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere Clubes HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HGTV.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HGTV HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Mega.TV.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Mega TV</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..SporTV.3..br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SporTV 3 </display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Multishow.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Multishow</display-name>
-  </channel>
-  <channel id="FRANCE.24.HD.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/france_24_epg.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/france_24_epg.png" />
+  <channel id="Jovem.Pan.News.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/jovem_pan_news.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/jovem_pan_news.png" />
     <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">FRANCE 24 HD</display-name>
+    <display-name lang="pt">Jovem Pan News</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Play.TV.br">
+  <channel id="São.Paulo/SP..Telecine.Cult.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Play TV</display-name>
+    <display-name lang="pt">São Paulo/SP  Telecine Cult HD ³</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Canal.Brasil.HD.³.br">
+  <channel id="São.Paulo/SP..TLC.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Canal Brasil HD ³</display-name>
+    <display-name lang="pt">São Paulo/SP  TLC HD ³</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Premiere.2.br">
+  <channel id="São.Paulo/SP..Band.Sports.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere 2</display-name>
+    <display-name lang="pt">São Paulo/SP  Band Sports</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Comedy.Central.br">
+  <channel id="Campinas/SP..Canal.do.Boi.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Comedy Central</display-name>
+    <display-name lang="pt">Campinas/SP  Canal do Boi</display-name>
   </channel>
-  <channel id="São.Paulo/SP..SBT.HD.br">
+  <channel id="São.Paulo/SP..STAR.CHANNEL.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SBT HD</display-name>
+    <display-name lang="pt">São Paulo/SP  STAR CHANNEL HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Lifetime.HD.br">
+  <channel id="São.Paulo/SP..HBO.Family.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Lifetime HD</display-name>
+    <display-name lang="pt">São Paulo/SP  HBO Family HD ³</display-name>
   </channel>
-  <channel id="São.Paulo/SP..SporTV.br">
+  <channel id="São.Paulo/SP..Star.Channel.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  SporTV</display-name>
+    <display-name lang="pt">São Paulo/SP  Star Channel</display-name>
   </channel>
-  <channel id="São.Paulo/SP..ID.HD.³.br">
+  <channel id="São.Paulo/SP..Arte.1.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  ID HD ³</display-name>
+    <display-name lang="pt">São Paulo/SP  Arte 1 HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..SporTV.2.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  SporTV 2 HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Modo.viagem.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Modo viagem</display-name>
   </channel>
   <channel id="São.Paulo/SP..ZooMoo.br">
     <url>http://www.clarotv.com.br</url>
     <display-name lang="pt">São Paulo/SP  ZooMoo</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Telecine.Premium.br">
+  <channel id="São.Paulo/SP..Cartoon.Network.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Telecine Premium</display-name>
+    <display-name lang="pt">São Paulo/SP  Cartoon Network HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Nickelodeon.HD.br">
+  <channel id="Belo.Horizonte/MG..Premiere.6.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Nickelodeon HD</display-name>
+    <display-name lang="pt">Belo Horizonte/MG  Premiere 6</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Record.HD.br">
+  <channel id="São.Paulo/SP..Viva.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Record HD</display-name>
+    <display-name lang="pt">São Paulo/SP  Viva HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..BIS.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  BIS HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Rede.Vida.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Rede Vida</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..CNN.Brasil.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  CNN Brasil</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..TNT.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  TNT</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Nick.Jr.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Nick Jr HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Rede.Gospel.HD.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Rede Gospel HD</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..Discovery.Science.HD.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Discovery Science HD ³</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..A.and.E.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  A and E</display-name>
-  </channel>
-  <channel id="São.Paulo/SP..HBO.HD.2.³.br">
-    <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  HBO HD 2 ³</display-name>
-  </channel>
-  <channel id="ESPN.5.br">
-    <icon src="https://www.clarotvmais.com.br/img/channels/espn_5.png" />
-    <icon src="https://www.clarotvmais.com.br/img/channels/espn_5.png" />
+  <channel id="ESPN.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/espn.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/espn.png" />
     <url>http://www.clarotvmais.com.br</url>
-    <display-name lang="pt">ESPN 5</display-name>
+    <display-name lang="pt">ESPN</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Premiere.5.br">
+  <channel id="São.Paulo/SP..Rede.TV.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Premiere 5</display-name>
+    <display-name lang="pt">São Paulo/SP  Rede TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV5.Monde.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV5 Monde</display-name>
   </channel>
   <channel id="São.Paulo/SP.Record.News.br">
     <icon src="https://www.clarotvmais.com.br/img/channels/record_news.png" />
@@ -1080,9 +800,147 @@
     <url>http://www.clarotvmais.com.br</url>
     <display-name lang="pt">São Paulo/SP Record News</display-name>
   </channel>
-  <channel id="São.Paulo/SP..Viva.HD.br">
+  <channel id="São.Paulo/SP..BIS.HD.³.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  Viva HD</display-name>
+    <display-name lang="pt">São Paulo/SP  BIS HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Space.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Space HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Gazeta.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Gazeta</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.Xtreme.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO Xtreme HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Rede.Vida.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Rede Vida</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..GloboNews.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  GloboNews</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Film&amp;Arts.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Film&amp;Arts HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Megapix.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Megapix</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TNT.SÉRIES.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TNT SÉRIES HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Cinemax.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Cinemax HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Premium.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Premium</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Rede.Gospel.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Rede Gospel</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..AXN.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  AXN HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Syfy.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Syfy</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.Brasil.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal Brasil HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Off.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Off</display-name>
+  </channel>
+  <channel id="FRANCE.24.HD.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/france_24_epg.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/france_24_epg.png" />
+    <url>http://www.clarotvmais.com.br</url>
+    <display-name lang="pt">FRANCE 24 HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Paramount.Network.HD..br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Paramount Network HD </display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Record.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Record HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Action.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Action</display-name>
+  </channel>
+  <channel id="Belo.Horizonte/MG..Shoptime.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">Belo Horizonte/MG  Shoptime</display-name>
+  </channel>
+  <channel id="São.Paulo/SP...TV.Brasil.2.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP   TV Brasil 2</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Band.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Band HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Globo.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Globo</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Polishop.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Polishop TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Gloob.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Gloob HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.Brasil.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal Brasil</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Mega.TV.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Mega TV HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..BBC.World.News.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  BBC World News</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV.Rá.Tim.Bum.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV Rá Tim Bum HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..PREMIERE.HD.3.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  PREMIERE HD 3 ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Curta!.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Curta! HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.Rural.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal Rural</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..GNT.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  GNT HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..HBO.2.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  HBO 2</display-name>
   </channel>
   <channel id="Rede.Brasil.HD.br">
     <icon src="http://dtil.tmsimg.com/assets/s103807_ll_h15_ab.png?w=360&amp;h=270" />
@@ -1090,9 +948,151 @@
     <url>http://www.tmsapi.com</url>
     <display-name lang="en">Rede Brasil HD</display-name>
   </channel>
-  <channel id="São.Paulo/SP..BBC.World.News.br">
+  <channel id="São.Paulo/SP..Gloobinho.HD.br">
     <url>http://www.clarotv.com.br</url>
-    <display-name lang="pt">São Paulo/SP  BBC World News</display-name>
+    <display-name lang="pt">São Paulo/SP  Gloobinho HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.world.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery world HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP...Universal.TV.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP   Universal TV HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Woohoo.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Woohoo</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Science.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Science</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.7.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere 7</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Sony.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Sony HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Combate.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Combate HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Viva.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Viva</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Playboy.TV..br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Playboy TV </display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Discovery.Turbo.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Discovery Turbo</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..GloboNews.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  GloboNews HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..ESPN.4.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  ESPN 4 HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Play.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Play TV</display-name>
+  </channel>
+  <channel id="ESPN.5.br">
+    <icon src="https://www.clarotvmais.com.br/img/channels/espn_5.png" />
+    <icon src="https://www.clarotvmais.com.br/img/channels/espn_5.png" />
+    <url>http://www.clarotvmais.com.br</url>
+    <display-name lang="pt">ESPN 5</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Telecine.Touch.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Telecine Touch HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..FISH.TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  FISH TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Eurochannel.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Eurochannel HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Premiere.HD.2.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Premiere HD 2</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Terra.Viva.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Terra Viva</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Nick.Jr.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Nick Jr HD ³</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Cinecanal.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Cinecanal</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..DW-TV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  DW-TV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..TV.Korea.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  TV Korea</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Fashion.TV.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Fashion TV HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..MTV.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  MTV</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Espn.4.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Espn 4</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Sony.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Sony</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Cultura.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Cultura</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Futura.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Futura</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Canal.Universitário.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Canal Universitário</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..ID.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  ID</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Rede.Gospel.HD.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Rede Gospel HD</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Sextreme.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Sextreme</display-name>
+  </channel>
+  <channel id="São.Paulo/SP..Multishow.HD.³.br">
+    <url>http://www.clarotv.com.br</url>
+    <display-name lang="pt">São Paulo/SP  Multishow HD ³</display-name>
   </channel>
   <programme channel="São.Paulo/SP..SBT.HD.br" start="20260922000000 -0300" stop="20260922010000 -0300">
     <title lang="pt">The Noite com Danilo Gentili</title>
